@@ -1,0 +1,66 @@
+# Local dev stack for isa-skin.com (WordPress + WooCommerce).
+# Production runs the same images' equivalents on a 1 GB VM, so keep it lean.
+name: isa-skin
+
+services:
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: isa
+      MARIADB_USER: isa
+      MARIADB_PASSWORD: isa-local-only
+      MARIADB_ROOT_PASSWORD: isa-root-local-only
+    volumes:
+      - db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      retries: 20
+
+  wordpress:
+    image: wordpress:php8.3-apache
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8090:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: isa
+      WORDPRESS_DB_USER: isa
+      WORDPRESS_DB_PASSWORD: isa-local-only
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_ENVIRONMENT_TYPE', 'local');
+        define('DISALLOW_FILE_EDIT', true);
+        define('WP_POST_REVISIONS', 5);
+    volumes:
+      - wp:/var/www/html
+      - ./theme/isa:/var/www/html/wp-content/themes/isa
+      - ./mu-plugins:/var/www/html/wp-content/mu-plugins
+      - ./products:/products:ro
+
+  # One-shot WP-CLI container: `docker compose run --rm cli wp ...`
+  cli:
+    image: wordpress:cli-php8.3
+    profiles: ["cli"]
+    user: "33:33"
+    depends_on:
+      - wordpress
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: isa
+      WORDPRESS_DB_USER: isa
+      WORDPRESS_DB_PASSWORD: isa-local-only
+    volumes:
+      - wp:/var/www/html
+      - ./theme/isa:/var/www/html/wp-content/themes/isa
+      - ./mu-plugins:/var/www/html/wp-content/mu-plugins
+      - ./products:/products:ro
+      - ./bin:/bin-isa:ro
+      - ./brand:/brand:ro
+
+volumes:
+  db:
+  wp:

@@ -1,0 +1,7 @@
+.DS_Store
+.env
+*.sql
+*.sql.gz
+backups/
+products/images/*
+!products/images/.gitkeep
