@@ -1,0 +1,84 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: isa\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+"X-Domain: isa\n"
+
+msgid "Pay cash on delivery, anywhere in Egypt"
+msgstr "ادفع نقدًا عند الاستلام، في أي مكان في مصر"
+
+msgid "Gentle, effective skin care — delivered anywhere in Egypt."
+msgstr "عناية لطيفة وفعّالة ببشرتك، تصلك إلى أي مكان في مصر."
+
+msgid "Shop"
+msgstr "المتجر"
+
+msgid "All products"
+msgstr "كل المنتجات"
+
+msgid "Help"
+msgstr "المساعدة"
+
+msgid "Talk to us"
+msgstr "تواصل معنا"
+
+msgid "Contact page"
+msgstr "صفحة التواصل"
+
+msgid "We accept cash on delivery, InstaPay and Vodafone Cash."
+msgstr "نقبل الدفع عند الاستلام، وإنستاباي، وفودافون كاش."
+
+msgid "Chat on WhatsApp"
+msgstr "تواصل معنا على واتساب"
+
+msgid "Skin care that feels like you"
+msgstr "عناية ببشرتك تشبهك"
+
+msgid "Gentle, effective products for every skin type — delivered to your door anywhere in Egypt."
+msgstr "منتجات لطيفة وفعّالة لكل أنواع البشرة، تصلك حتى باب بيتك في أي مكان في مصر."
+
+msgid "Shop the collection"
+msgstr "تسوّق المجموعة"
+
+msgid "Not sure what suits you? Ask us"
+msgstr "لست متأكدًا مما يناسبك؟ اسألنا"
+
+msgid "%d product"
+msgid_plural "%d products"
+msgstr[0] "لا منتجات"
+msgstr[1] "منتج واحد"
+msgstr[2] "منتجان"
+msgstr[3] "%d منتجات"
+msgstr[4] "%d منتجًا"
+msgstr[5] "%d منتج"
+
+msgid "Cash on delivery"
+msgstr "الدفع عند الاستلام"
+
+msgid "Pay when your order arrives"
+msgstr "ادفع عند وصول طلبك"
+
+msgid "All over Egypt"
+msgstr "في كل مصر"
+
+msgid "Delivery to every governorate"
+msgstr "توصيل لكل المحافظات"
+
+msgid "100% original"
+msgstr "أصلي ١٠٠٪"
+
+msgid "Sourced directly, never repacked"
+msgstr "من المصدر مباشرة، بدون إعادة تعبئة"
+
+msgid "Real advice"
+msgstr "نصيحة حقيقية"
+
+msgid "Ask us anything on WhatsApp"
+msgstr "اسألنا عن أي شيء على واتساب"
+
+msgid "Please enter a valid Egyptian mobile number, e.g. 01012345678."
+msgstr "من فضلك أدخل رقم موبايل مصري صحيح، مثل 01012345678."

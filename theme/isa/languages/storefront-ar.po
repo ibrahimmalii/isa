@@ -1,0 +1,54 @@
+# Storefront ships no Arabic language pack; these are the strings a shopper can see or hear.
+msgid ""
+msgstr ""
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+"X-Domain: storefront\n"
+
+msgid "%d item"
+msgid_plural "%d items"
+msgstr[0] "لا منتجات"
+msgstr[1] "منتج واحد"
+msgstr[2] "منتجان"
+msgstr[3] "%d منتجات"
+msgstr[4] "%d منتجًا"
+msgstr[5] "%d منتج"
+
+msgid "Menu"
+msgstr "القائمة"
+
+msgid "Skip to navigation"
+msgstr "انتقل إلى القائمة"
+
+msgid "Skip to content"
+msgstr "انتقل إلى المحتوى"
+
+msgid "View your shopping cart"
+msgstr "عرض سلة التسوق"
+
+msgid "My Account"
+msgstr "حسابي"
+
+msgid "Search"
+msgstr "بحث"
+
+msgid "Primary Navigation"
+msgstr "القائمة الرئيسية"
+
+msgid "Secondary Navigation"
+msgstr "القائمة الثانوية"
+
+msgid "breadcrumbs"
+msgstr "مسار التنقل"
+
+msgid "Expand child menu"
+msgstr "فتح القائمة الفرعية"
+
+msgid "Collapse child menu"
+msgstr "إغلاق القائمة الفرعية"
+
+msgid "More products"
+msgstr "منتجات أخرى"
