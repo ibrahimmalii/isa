@@ -92,3 +92,12 @@ add_action( 'wp_enqueue_scripts', function () {
 		wp_dequeue_script( 'wc-cart-fragments' );
 	}
 }, 99 );
+
+/* -------------------------------------------------------------------------
+ * Languages: WooCommerce caches the header cart snippet in the browser under
+ * one key for the whole site, so switching /en ↔ /ar showed the other
+ * language's "0 items". Key it per language.
+ * ---------------------------------------------------------------------- */
+add_filter( 'woocommerce_cart_fragment_name', function ( $name ) {
+	return $name . '_' . determine_locale();
+} );
