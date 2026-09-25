@@ -213,4 +213,4 @@ CRON
 # ------------------------------------------------------------------ updates
 dpkg-reconfigure -f noninteractive unattended-upgrades >/dev/null 2>&1 || true
 
-say "Provisioned. Next: import the site data (server/import-site.sh), then TLS."
+say "Provisioned. Next: copy the site data (server/push-site.sh from your Mac), then TLS."
