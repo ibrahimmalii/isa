@@ -93,6 +93,17 @@ Search the admin pages for `[` and replace every bracketed placeholder:
 | `bin/pages/` | Page content (home, about, FAQ, policies) |
 | `bin/import-products.php` | CSV → products |
 
+## Production
+
+- Server: Oracle `VM.Standard.E2.1.Micro` (1 GB), Frankfurt, `130.162.236.161`, behind Cloudflare (DNS + SSL + CDN).
+  SSH: `ssh -i ~/.ssh/isa_key ubuntu@130.162.236.161`. About $2.13/month (the 50 GB disk; the VM itself is free).
+- First-time build: `server/provision.sh` (packages, tuning, nginx page cache, backups), then `server/tls.sh`.
+- **Deploy code changes**: push to `main`, then `bash server/deploy.sh`.
+- **Content lives on the server now.** Add products, orders, pages and translations in the live admin
+  (https://isa-skin.com/wp-admin). `server/push-site.sh` copies local → server and **overwrites** the live
+  database. It was only for the first launch.
+- Backups: daily at 03:30 to `/var/backups/isa` (database + uploads, 7 days kept).
+
 ## Store rules
 
 - **Payments**: cash on delivery (default) + InstaPay / Vodafone Cash (manual transfer). Card gateway (Paymob) comes later.
