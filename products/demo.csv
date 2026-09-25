@@ -1,0 +1,5 @@
+sku,name,category,price,sale_price,stock,featured,short_description,description,images
+DEMO-1,Gentle Foam Cleanser,Cleansers,350,,20,yes,"Soft daily cleanser that removes makeup without drying.","Demo product — will be replaced by your real products.",demo-cleanser.png
+DEMO-2,Vitamin C Glow Serum,Serums,520,450,15,yes,"Brightens dull skin and evens tone.","Demo product — will be replaced by your real products.",demo-serum.png
+DEMO-3,Barrier Repair Moisturizer,Moisturizers,410,,12,yes,"Rich but light cream for dry, sensitive skin.","Demo product — will be replaced by your real products.",demo-cream.png
+DEMO-4,Invisible Sunscreen SPF 50,Sunscreen,390,,30,yes,"No white cast, no greasy feel.","Demo product — will be replaced by your real products.",demo-spf.png
