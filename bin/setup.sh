@@ -112,9 +112,10 @@ opt woocommerce_show_marketplace_suggestions "no"
 opt woocommerce_allow_tracking "no"
 
 # ---------------------------------------------------------------- payments
-say "Payments: Cash on delivery + InstaPay/Vodafone Cash"
+# No cash on delivery: refused parcels cost us the courier fee both ways.
+say "Payments: InstaPay/Vodafone Cash (no cash on delivery)"
 opt woocommerce_cod_settings '{
-	"enabled":"yes",
+	"enabled":"no",
 	"title":"Cash on delivery",
 	"description":"Pay in cash when your order arrives.",
 	"instructions":"Please have the exact amount ready. We will call you to confirm before shipping.",
@@ -129,11 +130,13 @@ opt woocommerce_bacs_settings '{
 	"instructions":"InstaPay: [ADD INSTAPAY ADDRESS]\nVodafone Cash: [ADD NUMBER]\nSend the transfer screenshot + your order number on WhatsApp.",
 	"account_details":""
 }' --format=json
-opt woocommerce_gateway_order '{"cod":0,"bacs":1}' --format=json
+opt woocommerce_gateway_order '{"bacs":0,"cod":1}' --format=json
 opt woocommerce_cheque_settings '{"enabled":"no"}' --format=json
 
 # ---------------------------------------------------------------- shipping
-say "Shipping zones"
+# The customer pays the courier on delivery (about 80–150 EGP), so shipping adds
+# nothing to the order total; the theme shows the estimate next to it.
+say "Shipping zones (paid to the courier)"
 zone_id() { wp wc shipping_zone list --user="$ADMIN_USER" --format=json | php -r '$z=json_decode(stream_get_contents(STDIN),true); foreach($z as $r){ if($r["name"]===$argv[1]){ echo $r["id"]; exit; } }' "$1"; }
 
 ensure_zone() { # name, cost, "code:type code:type ..."
@@ -154,14 +157,17 @@ ensure_zone() { # name, cost, "code:type code:type ..."
 			\$zone->save();
 		"
 		wp wc shipping_zone_method create "$id" --user="$ADMIN_USER" --method_id=flat_rate \
-			--settings="{\"title\":\"Delivery\",\"cost\":\"$cost\",\"tax_status\":\"none\"}" --quiet
-		echo "  created zone '$name' ($cost EGP)"
-	else
-		echo "  zone '$name' exists (#$id) — edit its price in WooCommerce → Settings → Shipping"
+			--settings="{\"title\":\"Home delivery\",\"cost\":\"$cost\",\"tax_status\":\"none\"}" --quiet
+		echo "  created zone '$name'"
 	fi
 }
-ensure_zone "Cairo & Giza" 60 "EG:EGC|state EG:EGGZ|state"
-ensure_zone "Rest of Egypt" 90 "EG|country"
+ensure_zone "Cairo & Giza" 0 "EG:EGC|state EG:EGGZ|state"
+ensure_zone "Rest of Egypt" 0 "EG|country"
+wp eval-file /bin-isa/shipping-courier.php
+
+# ---------------------------------------------------------------- categories
+say "Product categories"
+wp eval-file /bin-isa/categories.php
 
 # ---------------------------------------------------------------- pages
 say "Pages"

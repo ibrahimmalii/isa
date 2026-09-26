@@ -40,7 +40,7 @@ are only created once; after that, edit their prices in the admin.
 | name | yes | |
 | price | yes | EGP, number only |
 | sale_price | | Leave empty if not on sale |
-| category | | e.g. `Serums`; several: `Serums, Vitamin C` |
+| category | | `Body Care`, `Hair Care`, `Lip & Cheek` or `Skin Care`; several: `Body Care, Hair Care` |
 | stock | | Number; empty = don't track stock |
 | featured | | `yes` = shows under "Bestsellers" on the home page |
 | short_description | | 1–2 lines under the price |
@@ -55,7 +55,6 @@ Search the admin pages for `[` and replace every bracketed placeholder:
 - **Shipping & Returns, Privacy, Terms**: these are *drafts*. Check the days and rules
 - **WooCommerce → Settings → Payments → InstaPay / Vodafone Cash**: your InstaPay address + wallet number
 - **Settings → General → WhatsApp number**: turns on the floating WhatsApp button
-- **WooCommerce → Settings → Shipping**: real delivery prices (defaults: Cairo & Giza 60, rest of Egypt 90)
 
 ## Languages (English + Arabic)
 
@@ -106,6 +105,8 @@ Search the admin pages for `[` and replace every bracketed placeholder:
 
 ## Store rules
 
-- **Payments**: cash on delivery (default) + InstaPay / Vodafone Cash (manual transfer). Card gateway (Paymob) comes later.
+- **Payments**: InstaPay / Vodafone Cash (manual transfer) only. No cash on delivery: refused parcels cost the courier fee both ways. Card gateway (Paymob) comes later.
+- **Shipping**: the customer pays the courier on delivery (about 80–150 EGP), so checkout adds 0. The estimate text is in `theme/isa/functions.php` (`isa_shipping_note`).
+- **Categories**: `bin/categories.php` (English names); Arabic names in `bin/translations-ar.php`.
 - **Checkout**: guest checkout, Egypt only, classic (shortcode) checkout. The Egypt field rules don't apply to WooCommerce's block checkout, so don't switch the Cart/Checkout pages to blocks.
 - **Hosting target**: 1 GB Oracle micro VM, isolated from Tamreena. Keep plugins minimal.

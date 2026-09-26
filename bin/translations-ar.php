@@ -33,6 +33,11 @@ return [
 	'See everything new'                => 'شاهد كل الجديد',
 
 	// Categories
+	'Body Care'                         => 'العناية بالجسم',
+	'Hair Care'                         => 'العناية بالشعر',
+	'Lip &amp; Cheek'                   => 'الشفاه والخدود',
+	'Lip &#038; Cheek'                  => 'الشفاه والخدود',
+	'Skin Care'                         => 'العناية بالبشرة',
 	'Cleansers'                         => 'منظفات',
 	'Moisturizers'                      => 'مرطبات',
 	'Serums'                            => 'سيرومات',
@@ -51,9 +56,11 @@ return [
 	'How much is shipping?'             => 'كم تكلفة الشحن؟',
 	'Cairo &amp; Giza: 60 EGP. Rest of Egypt: 90 EGP. You&#8217;ll see the exact amount at checkout.'
 		=> 'القاهرة والجيزة: ٦٠ ج.م. باقي المحافظات: ٩٠ ج.م. ستظهر لك التكلفة الدقيقة عند إتمام الطلب.',
+	'Shipping is paid to the courier when your order arrives: usually 80–150 EGP, depending on your area. Tip: get everything you love in one order and pay shipping only once.'
+		=> 'تُدفع مصاريف الشحن لمندوب التوصيل عند استلام طلبك: عادةً من ٨٠ إلى ١٥٠ ج.م حسب منطقتك. نصيحة: اجمع كل ما تحبه في طلب واحد، وادفع الشحن مرة واحدة فقط.',
 	'How can I pay?'                    => 'كيف أدفع؟',
-	'Cash on delivery, or a transfer by InstaPay / Vodafone Cash.'
-		=> 'الدفع نقدًا عند الاستلام، أو التحويل عبر إنستاباي / فودافون كاش.',
+	'By InstaPay or Vodafone Cash transfer. Only the shipping fee is paid in cash, to the courier.'
+		=> 'بالتحويل عبر إنستاباي أو فودافون كاش. مصاريف الشحن فقط تُدفع نقدًا للمندوب.',
 	'Are the products original?'        => 'هل المنتجات أصلية؟',
 	'Yes. [EXPLAIN WHERE YOUR PRODUCTS COME FROM.]'
 		=> 'نعم. [اشرح مصدر منتجاتك.]',
@@ -77,6 +84,10 @@ return [
 	'We deliver to all governorates in Egypt.' => 'نوصّل إلى جميع محافظات مصر.',
 	'Cairo &amp; Giza: 60 EGP, [1–3] working days. Rest of Egypt: 90 EGP, [3–5] working days.'
 		=> 'القاهرة والجيزة: ٦٠ ج.م خلال [١–٣] أيام عمل. باقي المحافظات: ٩٠ ج.م خلال [٣–٥] أيام عمل.',
+	'Shipping is paid to the courier when your order arrives: usually 80–150 EGP, depending on your area.'
+		=> 'تُدفع مصاريف الشحن لمندوب التوصيل عند استلام طلبك: عادةً من ٨٠ إلى ١٥٠ ج.م حسب منطقتك.',
+	'Cairo &amp; Giza: [1–3] working days. Rest of Egypt: [3–5] working days.'
+		=> 'القاهرة والجيزة: [١–٣] أيام عمل. باقي المحافظات: [٣–٥] أيام عمل.',
 	'We call or message you to confirm every order before it ships.'
 		=> 'نتصل بك أو نراسلك لتأكيد كل طلب قبل شحنه.',
 	'Returns &amp; refunds'             => 'الاسترجاع واسترداد المبلغ',
@@ -107,8 +118,9 @@ return [
 	// Terms
 	'This store is operated by [YOUR NAME / BUSINESS NAME], Egypt.'
 		=> 'يدير هذا المتجر [اسمك / اسم النشاط]، مصر.',
-	'Prices are in Egyptian pounds (EGP). Shipping is added at checkout.'
-		=> 'الأسعار بالجنيه المصري. تُضاف تكلفة الشحن عند إتمام الطلب.',
+	'Prices are in Egyptian pounds (EGP). Shipping is paid to the courier on delivery.'
+		=> 'الأسعار بالجنيه المصري. تُدفع مصاريف الشحن لمندوب التوصيل عند الاستلام.',
+	'Home delivery'                     => 'توصيل للمنزل',
 	'An order is confirmed once we contact you and confirm it. We may cancel an order if a product is out of stock or details can&#8217;t be confirmed; any payment made is refunded in full.'
 		=> 'يُعتبر الطلب مؤكدًا بعد أن نتواصل معك ونؤكده. قد نلغي الطلب إذا نفد المنتج أو تعذّر تأكيد البيانات؛ وأي مبلغ مدفوع يُرد بالكامل.',
 	'Product descriptions are for general information and are not medical advice. Do a patch test before using a new product; stop use if irritation occurs.'

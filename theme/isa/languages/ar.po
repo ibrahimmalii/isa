@@ -8,8 +8,8 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
 "X-Domain: isa\n"
 
-msgid "Pay cash on delivery, anywhere in Egypt"
-msgstr "ادفع نقدًا عند الاستلام، في أي مكان في مصر"
+msgid "Delivery to every governorate in Egypt"
+msgstr "توصيل لكل محافظات مصر"
 
 msgid "Gentle, effective skin care — delivered anywhere in Egypt."
 msgstr "عناية لطيفة وفعّالة ببشرتك، تصلك إلى أي مكان في مصر."
@@ -29,8 +29,8 @@ msgstr "تواصل معنا"
 msgid "Contact page"
 msgstr "صفحة التواصل"
 
-msgid "We accept cash on delivery, InstaPay and Vodafone Cash."
-msgstr "نقبل الدفع عند الاستلام، وإنستاباي، وفودافون كاش."
+msgid "We accept InstaPay and Vodafone Cash."
+msgstr "نقبل الدفع عبر إنستاباي وفودافون كاش."
 
 msgid "Chat on WhatsApp"
 msgstr "تواصل معنا على واتساب"
@@ -56,11 +56,11 @@ msgstr[3] "%d منتجات"
 msgstr[4] "%d منتجًا"
 msgstr[5] "%d منتج"
 
-msgid "Cash on delivery"
-msgstr "الدفع عند الاستلام"
+msgid "Easy payment"
+msgstr "دفع سهل"
 
-msgid "Pay when your order arrives"
-msgstr "ادفع عند وصول طلبك"
+msgid "InstaPay or Vodafone Cash"
+msgstr "إنستاباي أو فودافون كاش"
 
 msgid "All over Egypt"
 msgstr "في كل مصر"
@@ -82,3 +82,12 @@ msgstr "اسألنا عن أي شيء على واتساب"
 
 msgid "Please enter a valid Egyptian mobile number, e.g. 01012345678."
 msgstr "من فضلك أدخل رقم موبايل مصري صحيح، مثل 01012345678."
+
+msgid "Shipping is paid to the courier when your order arrives: usually 80–150 EGP, sometimes a little more or less depending on your area."
+msgstr "تُدفع مصاريف الشحن لمندوب التوصيل عند استلام طلبك: عادةً من ٨٠ إلى ١٥٠ ج.م، وقد تزيد أو تقل قليلًا حسب منطقتك."
+
+msgid "Pro tip: get everything you love in one order and pay shipping only once 😉"
+msgstr "نصيحة صغيرة: اجمع كل ما تحبه في طلب واحد، وادفع الشحن مرة واحدة فقط 😉"
+
+msgid "Shipping ≈ 80–150 EGP, paid to the courier on delivery."
+msgstr "الشحن حوالي ٨٠–١٥٠ ج.م، يُدفع للمندوب عند الاستلام."

@@ -78,7 +78,7 @@ function isa_whatsapp_url(): string {
  * ---------------------------------------------------------------------- */
 
 add_action( 'storefront_before_header', function () {
-	$text = isa_setting( 'announcement', __( 'Pay cash on delivery, anywhere in Egypt', 'isa' ) );
+	$text = isa_setting( 'announcement', __( 'Delivery to every governorate in Egypt', 'isa' ) );
 	printf( '<div class="isa-announcement">%s</div>', esc_html( $text ) );
 } );
 
@@ -164,7 +164,7 @@ add_action( 'storefront_footer', function () {
 				<?php if ( $ig ) : ?><li><a href="<?php echo esc_url( 'https://instagram.com/' . ltrim( $ig, '@' ) ); ?>" target="_blank" rel="noopener">Instagram</a></li><?php endif; ?>
 				<li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact page', 'isa' ); ?></a></li>
 			</ul>
-			<p class="isa-footer__pay"><?php esc_html_e( 'We accept cash on delivery, InstaPay and Vodafone Cash.', 'isa' ); ?></p>
+			<p class="isa-footer__pay"><?php esc_html_e( 'We accept InstaPay and Vodafone Cash.', 'isa' ); ?></p>
 		</div>
 	</div>
 	<div class="isa-footer__legal">&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> isa skincare</div>
@@ -266,7 +266,7 @@ add_shortcode( 'isa_promise', function () {
 		'chat'  => '<path d="M4 5h16v11H9l-5 4z"/>',
 	];
 	$items = [
-		[ 'cash', __( 'Cash on delivery', 'isa' ), __( 'Pay when your order arrives', 'isa' ) ],
+		[ 'cash', __( 'Easy payment', 'isa' ), __( 'InstaPay or Vodafone Cash', 'isa' ) ],
 		[ 'truck', __( 'All over Egypt', 'isa' ), __( 'Delivery to every governorate', 'isa' ) ],
 		[ 'leaf', __( '100% original', 'isa' ), __( 'Sourced directly, never repacked', 'isa' ) ],
 		[ 'chat', __( 'Real advice', 'isa' ), __( 'Ask us anything on WhatsApp', 'isa' ) ],
@@ -300,3 +300,30 @@ add_filter( 'woocommerce_sale_flash', function ( $html, $post, $product ) {
 // Four products per row on the shop page.
 add_filter( 'loop_shop_columns', fn() => 4 );
 add_filter( 'storefront_loop_columns', fn() => 4 );
+
+/* -------------------------------------------------------------------------
+ * Shipping: the customer pays the courier on delivery, so the order total
+ * holds products only. Tell them the rough fee wherever totals are shown.
+ * ---------------------------------------------------------------------- */
+
+function isa_shipping_note(): string {
+	return sprintf(
+		'<p>%s</p><p class="isa-ship-note__tip">%s</p>',
+		esc_html__( 'Shipping is paid to the courier when your order arrives: usually 80–150 EGP, sometimes a little more or less depending on your area.', 'isa' ),
+		esc_html__( 'Pro tip: get everything you love in one order and pay shipping only once 😉', 'isa' )
+	);
+}
+
+$isa_shipping_row = function () {
+	echo '<tr class="isa-ship-note"><td colspan="2">' . isa_shipping_note() . '</td></tr>'; // phpcs:ignore WordPress.Security.EscapeOutput
+};
+add_action( 'woocommerce_cart_totals_after_shipping', $isa_shipping_row );
+add_action( 'woocommerce_review_order_after_shipping', $isa_shipping_row );
+
+// One line under the add-to-cart button on the product page.
+add_action( 'woocommerce_single_product_summary', function () {
+	printf(
+		'<p class="isa-ship-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h11v9H3zM14 9h4l3 3v3h-7"/><circle cx="7" cy="17" r="1.8"/><circle cx="17" cy="17" r="1.8"/></svg>%s</p>',
+		esc_html__( 'Shipping ≈ 80–150 EGP, paid to the courier on delivery.', 'isa' )
+	);
+}, 31 );
