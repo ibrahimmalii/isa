@@ -233,6 +233,7 @@ add_action( 'wp_head', function () {
 		$settings = get_option( 'trp_settings', [] );
 		$default  = $settings['default-language'] ?? 'en_US';
 		$en       = TRP_Translate_Press::get_trp_instance()->get_component( 'url_converter' )->get_url_for_language( $default, null, '' );
+		$en       = strtok( (string) $en, '?#' ); // not ?utm=… or ?orderby=…
 		if ( $en ) {
 			printf( '<link rel="alternate" hreflang="x-default" href="%s">' . "\n", esc_url( $en ) );
 		}
