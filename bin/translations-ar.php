@@ -39,6 +39,10 @@ return [
 	'Lip &#038; Cheek'                  => 'الشفاه والخدود',
 	'Foot Care'                         => 'العناية بالقدمين',
 
+	// Product attributes (shade names themselves: Translate Site editor)
+	'Shade'                             => 'اللون',
+	'Scent'                             => 'الرائحة',
+
 	// Product names (descriptions: TranslatePress editor)
 	'Tint'                              => 'تنت',
 	'Hair Mist'                         => 'هير ميست',

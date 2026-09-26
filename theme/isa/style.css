@@ -976,3 +976,81 @@ html[lang^="ar"] .isa-ship-note__tip { font-style: normal; }
 	.single-product div.product .single_add_to_cart_button::before { transition: none; animation: none; }
 	ul.products li.product .add_to_cart_button.loading::after { animation: isa-spin 1.4s linear infinite; }
 }
+
+/* =========================================================================
+   Shades (inc/shades.php): one row per colour with its own quantity,
+   and a row of dots on shop cards.
+   ====================================================================== */
+.isa-shades { padding: 1em 0; }
+.single-product div.product .isa-shades fieldset { border: 0; padding: 0; margin: 0 0 1em; background: none; min-width: 0; }
+.single-product div.product .isa-shades legend { font-size: .82rem; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); background: none; padding: 0; margin: 0 0 .6em; }
+html[lang^="ar"] .single-product div.product .isa-shades legend { letter-spacing: 0; font-size: .92rem; }
+.isa-shades__list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.isa-shade {
+	display: grid;
+	grid-template-columns: auto 1fr auto auto;
+	align-items: center;
+	gap: 12px;
+	padding: .7em 0;
+	border-bottom: 1px solid var(--line);
+	transition: background-color .2s ease;
+}
+.isa-shade.is-picked .isa-shade__name { color: var(--walnut); font-weight: 500; }
+.isa-shade.is-out { opacity: .5; }
+.isa-shade.is-out .isa-shade__name { text-decoration: line-through; text-decoration-color: var(--muted); }
+.isa-shade__name { margin: 0; color: var(--bark); cursor: pointer; display: flex; flex-wrap: wrap; column-gap: .6em; align-items: baseline; }
+.isa-shade__price { font-size: .88rem; color: var(--muted); }
+.isa-shade__price del { opacity: .8; }
+.isa-shade__price ins { text-decoration: none; }
+.isa-shade__stock { font-size: .82rem; color: var(--sage); white-space: nowrap; }
+.isa-shade.is-out .isa-shade__stock { color: var(--muted); }
+
+.isa-swatch, .isa-dot {
+	display: inline-block;
+	flex: none;
+	border-radius: 50%;
+	background: var(--swatch, var(--sand));
+	box-shadow: inset 0 0 0 1px rgb(74 58 47 / .15);
+	overflow: hidden;
+}
+.isa-swatch { width: 30px; height: 30px; }
+.isa-swatch--img img, .isa-dot--img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.isa-shade.is-picked .isa-swatch { box-shadow: 0 0 0 2px var(--paper), 0 0 0 3px var(--walnut); }
+
+.isa-qty { display: inline-flex; align-items: stretch; border: 1px solid var(--line); border-radius: 2px; background: #fff; }
+.isa-qty input[type=number] {
+	width: 2.6em;
+	padding: .45em 0;
+	border: 0;
+	background: transparent;
+	box-shadow: none;
+	text-align: center;
+	color: var(--walnut);
+	-moz-appearance: textfield;
+}
+.isa-qty input::-webkit-outer-spin-button, .isa-qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.isa-qty__btn {
+	width: 2.2em;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: var(--walnut);
+	font-size: 1.1rem;
+	line-height: 1;
+	cursor: pointer;
+}
+.isa-qty__btn:hover:not(:disabled), .isa-qty__btn:focus-visible { background: var(--sand); color: var(--walnut); }
+.isa-qty__btn:disabled { cursor: not-allowed; color: var(--muted); background: transparent; }
+.isa-shades .single_add_to_cart_button { width: 100%; max-width: 360px; }
+.isa-shades .single_add_to_cart_button:disabled { opacity: .55; cursor: not-allowed; }
+
+.isa-dots { display: flex; justify-content: flex-start; align-items: center; gap: 5px; margin: -.2em 0 .6em; }
+.isa-dot { width: 12px; height: 12px; }
+.isa-dot.is-out { opacity: .35; }
+.isa-dots__more { font-size: .75rem; color: var(--muted); }
+
+@media (max-width: 480px) {
+	.isa-shade { grid-template-columns: auto 1fr auto; row-gap: 4px; }
+	.isa-shade__stock { grid-column: 2; grid-row: 2; }
+	.isa-qty { grid-column: 3; grid-row: 1 / span 2; }
+}

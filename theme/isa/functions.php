@@ -7,6 +7,8 @@ defined( 'ABSPATH' ) || exit;
 
 define( 'ISA_URI', get_stylesheet_directory_uri() );
 
+require_once __DIR__ . '/inc/shades.php';
+
 // Theme strings (header, footer, home sections, checkout messages). Arabic lives in languages/ar.po.
 add_action( 'after_setup_theme', function () {
 	load_child_theme_textdomain( 'isa', get_stylesheet_directory() . '/languages' );

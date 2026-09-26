@@ -46,6 +46,32 @@ are only created once; after that, edit their prices in the admin.
 | short_description | | 1–2 lines under the price |
 | description | | Full text: ingredients, how to use, skin type |
 | images | | `front.jpg|back.jpg` |
+| parent_sku | | Only on shade rows: the sku of the product this shade belongs to |
+| shade | | Only on shade rows: the colour name, e.g. `Red` |
+| scent | | Instead of `shade` for smells (body splash, hair mist), e.g. `Tropical` |
+| shade_color | | Only on shade rows: the dot colour, e.g. `#b3263a` |
+
+### Products with shades or scents (tints, body splash, hair mist…)
+
+One product, several colours. The product page lists every shade with its colour dot and how many
+are left ("5 left", "Sold out"). Each shade has its own + / − quantity and one button adds them all,
+so a customer can take 2 Red + 1 Yellow in one go. Shop cards show the shade dots under the name.
+
+**In the CSV:** the product row as usual (its `stock` is ignored), then one row per shade with its
+own `sku`, `stock`, `parent_sku`, `shade`, `shade_color` and optionally its photo. Leave `price`
+empty to use the product's price. See the last three rows of `products/products-template.csv`.
+
+**In the admin (the live site):**
+1. **Products → Attributes → Shade** (colours) or **Scent** (smells) **→ Configure terms**: add each colour and pick its **Swatch colour**.
+   Drag them to set the order they show in.
+2. **Products → Add New**, set **Product data** to **Variable product**.
+3. **Attributes** tab: add **Shade** or **Scent**, select the colours, tick **Used for variations**, **Save attributes**.
+4. **Variations** tab: **Generate variations**. For each one: price, tick **Manage stock?** and enter the
+   quantity you have, optionally its photo. **Save changes**, then **Publish**.
+5. Arabic: translate the shade names in the **Translate Site** editor, like product names.
+
+The list is used when **Shade** or **Scent** is the product's only attribute; anything else keeps
+WooCommerce's normal dropdowns. Code: `theme/isa/inc/shades.php`.
 
 ## Before launch: fill in the placeholders
 
@@ -85,7 +111,7 @@ Search the admin pages for `[` and replace every bracketed placeholder:
 
 | Path | What |
 |---|---|
-| `theme/isa/` | Child theme: colours, fonts, layout, WhatsApp button |
+| `theme/isa/` | Child theme: colours, fonts, layout, WhatsApp button, shade picker (`inc/shades.php`) |
 | `mu-plugins/isa-store.php` | Egypt checkout (phone required + validated, no postcode/company, email optional) and speed trims for a 1 GB server |
 | `bin/setup.sh` | Store configuration as code |
 | `bin/pages/` | Page content (home, about, FAQ, policies) |

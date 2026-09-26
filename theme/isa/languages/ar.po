@@ -100,3 +100,72 @@ msgstr "isa على إنستجرام"
 
 msgid "Join our WhatsApp group"
 msgstr "انضم إلى جروب واتساب"
+
+msgid "Choose your shades"
+msgstr "اختر ألوانك"
+
+msgid "Sold out"
+msgstr "نفدت الكمية"
+
+msgid "%d left"
+msgid_plural "%d left"
+msgstr[0] "نفدت"
+msgstr[1] "قطعة واحدة متبقية"
+msgstr[2] "قطعتان متبقيتان"
+msgstr[3] "%d قطع متبقية"
+msgstr[4] "%d قطعة متبقية"
+msgstr[5] "%d قطعة متبقية"
+
+msgid "One less %s"
+msgstr "قطعة أقل من %s"
+
+msgid "One more %s"
+msgstr "قطعة أخرى من %s"
+
+msgid "Pick a shade"
+msgstr "اختر لونًا"
+
+msgid "Add to cart"
+msgstr "أضف إلى السلة"
+
+msgid "Pick at least one shade."
+msgstr "اختر لونًا واحدًا على الأقل."
+
+msgid "%d shade"
+msgid_plural "%d shades"
+msgstr[0] "لا ألوان"
+msgstr[1] "لون واحد"
+msgstr[2] "لونان"
+msgstr[3] "%d ألوان"
+msgstr[4] "%d لونًا"
+msgstr[5] "%d لون"
+
+msgid "Choose shades"
+msgstr "اختر الألوان"
+
+msgid "Swatch colour"
+msgstr "لون العيّنة"
+
+msgid "The dot customers see on the product page."
+msgstr "النقطة التي يراها العميل في صفحة المنتج."
+
+msgid "Choose your scents"
+msgstr "اختر روائحك"
+
+msgid "Pick a scent"
+msgstr "اختر رائحة"
+
+msgid "Pick at least one scent."
+msgstr "اختر رائحة واحدة على الأقل."
+
+msgid "Choose scents"
+msgstr "اختر الروائح"
+
+msgid "%d scent"
+msgid_plural "%d scents"
+msgstr[0] "لا روائح"
+msgstr[1] "رائحة واحدة"
+msgstr[2] "رائحتان"
+msgstr[3] "%d روائح"
+msgstr[4] "%d رائحة"
+msgstr[5] "%d رائحة"

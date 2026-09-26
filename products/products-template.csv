@@ -1,3 +1,6 @@
-sku,name,category,price,sale_price,stock,featured,short_description,description,images
-ISA-001,Gentle Foam Cleanser 150ml,Cleansers,350,,20,yes,"Soft daily cleanser for all skin types.","Full description: ingredients, how to use, skin type.",cleanser-1.jpg|cleanser-2.jpg
-ISA-002,Vitamin C Serum 30ml,Serums,520,450,15,no,"Brightening serum for dull skin.","Full description here.",serum.jpg
+sku,name,category,price,sale_price,stock,featured,short_description,description,images,parent_sku,shade,shade_color
+ISA-001,Gentle Foam Cleanser 150ml,Cleansers,350,,20,yes,"Soft daily cleanser for all skin types.","Full description: ingredients, how to use, skin type.",cleanser-1.jpg|cleanser-2.jpg,,,
+ISA-002,Vitamin C Serum 30ml,Serums,520,450,15,no,"Brightening serum for dull skin.","Full description here.",serum.jpg,,,
+ISA-010,Lip & Cheek Tint,Lip & Cheek,250,,,yes,"Sheer colour for lips and cheeks.","Full description here.",tint.jpg,,,
+ISA-010-RED,,,,,5,,,,tint-red.jpg,ISA-010,Red,#b3263a
+ISA-010-YEL,,,,,3,,,,tint-yellow.jpg,ISA-010,Yellow,#e8b931
