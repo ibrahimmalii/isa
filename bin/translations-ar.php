@@ -138,10 +138,10 @@ return [
 	'InstaPay / Vodafone Cash'          => 'إنستاباي / فودافون كاش',
 	'Transfer the total, then send the screenshot on WhatsApp with your order number. We ship after we confirm the transfer.'
 		=> 'حوّل إجمالي الطلب، ثم أرسل صورة التحويل على واتساب مع رقم طلبك. نشحن طلبك بعد تأكيد التحويل.',
-	'InstaPay: 01014917877'             => 'إنستاباي: 01014917877',
+	'InstaPay: 01096121030'             => 'إنستاباي: 01096121030',
 	'Vodafone Cash: 01096121030'        => 'فودافون كاش: 01096121030',
-	'Send the transfer screenshot + your order number on WhatsApp.'
-		=> 'أرسل صورة التحويل + رقم طلبك على واتساب.',
+	'Send the transfer screenshot + your order number on WhatsApp:'
+		=> 'أرسل صورة التحويل + رقم طلبك على واتساب:',
 	'An order is confirmed once we contact you and confirm it. We may cancel an order if a product is out of stock or details can&#8217;t be confirmed; any payment made is refunded in full.'
 		=> 'يُعتبر الطلب مؤكدًا بعد أن نتواصل معك ونؤكده. قد نلغي الطلب إذا نفد المنتج أو تعذّر تأكيد البيانات؛ وأي مبلغ مدفوع يُرد بالكامل.',
 	'Product descriptions are for general information and are not medical advice. Do a patch test before using a new product; stop use if irritation occurs.'
