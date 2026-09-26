@@ -603,6 +603,8 @@ html[lang^="ar"] h1, html[lang^="ar"] h2, html[lang^="ar"] h3, html[lang^="ar"] 
 html[lang^="ar"] .product_title, html[lang^="ar"] .woocommerce-loop-product__title { font-weight: 700; letter-spacing: 0; line-height: 1.35; }
 html[lang^="ar"] .isa-hero h1 { line-height: 1.3; font-size: clamp(2.4rem, 5.6vw, 4.2rem); max-width: 13ch; }
 html[lang^="ar"] button, html[lang^="ar"] .button { letter-spacing: 0; }
+/* Phone numbers keep their digit groups in order inside RTL text (+20 101 491 7877) */
+a[href^="https://wa.me/"], a[href^="tel:"] { direction: ltr; unicode-bidi: isolate; }
 /* Prices stay left-to-right numerals inside RTL text */
 html[lang^="ar"] .price .amount, html[lang^="ar"] .woocommerce-Price-amount { unicode-bidi: isolate; }
 

@@ -127,7 +127,7 @@ opt woocommerce_bacs_settings '{
 	"enabled":"yes",
 	"title":"InstaPay / Vodafone Cash",
 	"description":"Transfer the total, then send the screenshot on WhatsApp with your order number. We ship after we confirm the transfer.",
-	"instructions":"InstaPay: 01096121030\nVodafone Cash: 01096121030\nSend the transfer screenshot + your order number on WhatsApp: <a href=\"https://wa.me/201014917877\">+20 101 491 7877</a>",
+	"instructions":"InstaPay: 01096121030\nVodafone Cash: 01096121030\nSend the transfer screenshot + your order number on WhatsApp: <a href=\"https://wa.me/201014917877\" dir=\"ltr\">+20 101 491 7877</a>",
 	"account_details":""
 }' --format=json
 opt woocommerce_gateway_order '{"bacs":0,"cod":1}' --format=json
