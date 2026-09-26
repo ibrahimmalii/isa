@@ -53,7 +53,6 @@ Search the admin pages for `[` and replace every bracketed placeholder:
 
 - **Contact, FAQ, About**: WhatsApp number, email, Instagram, hours, your story
 - **Shipping & Returns, Privacy, Terms**: these are *drafts*. Check the days and rules
-- **WooCommerce → Settings → Payments → InstaPay / Vodafone Cash**: your InstaPay address + wallet number
 - **Settings → General → WhatsApp number**: turns on the floating WhatsApp button
 
 ## Languages (English + Arabic)
