@@ -38,8 +38,8 @@ msgstr "تواصل معنا على واتساب"
 msgid "Skin care that feels like you"
 msgstr "عناية ببشرتك تشبهك"
 
-msgid "Gentle, effective products for every skin type — delivered to your door anywhere in Egypt."
-msgstr "منتجات لطيفة وفعّالة لكل أنواع البشرة، تصلك حتى باب بيتك في أي مكان في مصر."
+msgid "Lip & cheek tints, body splashes and hair mists, delivered to your door anywhere in Egypt."
+msgstr "تينت للشفايف والخدود، وبودي سبلاش، وهير ميست، تصلك حتى باب بيتك في أي مكان في مصر."
 
 msgid "Shop the collection"
 msgstr "تسوّق المجموعة"
@@ -169,3 +169,29 @@ msgstr[2] "رائحتان"
 msgstr[3] "%d روائح"
 msgstr[4] "%d رائحة"
 msgstr[5] "%d رائحة"
+
+# Search engines (inc/seo.php) and the home intro
+
+msgid "Skin care made simple"
+msgstr "العناية ببشرتك ببساطة"
+
+msgid "isa is a skin care store in Egypt for the small rituals that make you feel good: a lip and cheek tint for an easy flush of colour, and body splashes and hair mists in fruity, warm and sweet scents. Order online, pay by InstaPay or Vodafone Cash, and we deliver to every governorate in Egypt."
+msgstr "isa متجر للعناية بالبشرة في مصر، لكل التفاصيل الصغيرة التي تمنحك إحساسًا جميلًا: تينت للشفايف والخدود يمنحك لونًا طبيعيًا بسهولة، وبودي سبلاش وهير ميست بروائح فاكهية ودافئة وحلوة. اطلب أونلاين، وادفع بإنستاباي أو فودافون كاش، ونوصّل طلبك إلى كل محافظات مصر."
+
+msgid "isa skincare Egypt | Lip & Cheek Tint, Body Splash & Hair Mist"
+msgstr "isa للعناية بالبشرة في مصر | تينت للشفايف والخدود، بودي سبلاش وهير ميست"
+
+msgid "Shop Skin Care, Tints & Body Splash Online in Egypt | isa"
+msgstr "تسوق منتجات العناية بالبشرة والتينت والبودي سبلاش أونلاين في مصر | isa"
+
+msgid "%s | isa Egypt"
+msgstr "%s | isa مصر"
+
+msgid "%s in Egypt | isa"
+msgstr "%s في مصر | isa"
+
+msgid "isa skincare: lip & cheek tints, body splashes and hair mists that feel like you. Order online with delivery to every governorate in Egypt."
+msgstr "isa للعناية بالبشرة: تينت للشفايف والخدود، وبودي سبلاش، وهير ميست تشبهك. اطلب أونلاين مع توصيل لكل محافظات مصر."
+
+msgid "Shop all isa products online: lip & cheek tints, body splashes and hair mists. Pay by InstaPay or Vodafone Cash, delivered anywhere in Egypt."
+msgstr "تسوق كل منتجات isa أونلاين: تينت للشفايف والخدود، وبودي سبلاش، وهير ميست. الدفع بإنستاباي أو فودافون كاش، والتوصيل لكل محافظات مصر."

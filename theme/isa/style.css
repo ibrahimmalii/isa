@@ -340,6 +340,11 @@ button:hover, .button:hover, input[type="submit"]:hover, .added_to_cart:hover,
 	.isa-promise > div:nth-child(n+3) { border-top: 1px solid var(--line); }
 }
 
+/* Home intro: a short paragraph on what isa sells */
+.isa-intro { max-width: 44em; margin: clamp(48px, 7vw, 88px) auto 0; text-align: center; }
+.isa-intro h2 { margin: 0 0 .5em; }
+.isa-intro p { color: var(--muted); margin: 0; }
+
 /* =========================================================================
    Product grid (shop, categories, home)
    ====================================================================== */

@@ -9,6 +9,7 @@ cd /opt/isa
 sudo git fetch -q origin
 sudo git reset -q --hard origin/main
 sudo -u www-data wp --path=/var/www/isa i18n make-mo /opt/isa/theme/isa/languages --quiet 2>/dev/null || true
+sudo -u www-data wp --path=/var/www/isa rewrite flush --quiet   # picks up rewrite rules from theme code (robots.txt)
 sudo systemctl reload php8.3-fpm               # OPcache would otherwise serve old PHP for up to 60 s
 sudo find /var/cache/nginx/isa -mindepth 1 -delete
 echo "deployed $(sudo git log --oneline -1)"'

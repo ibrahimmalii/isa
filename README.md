@@ -97,6 +97,25 @@ Search the admin pages for `[` and replace every bracketed placeholder:
 - Admin stays English: **Users → Profile → Language** controls your own admin language.
 - Product URLs stay English (`/ar/product/…`); translating slugs is a paid TranslatePress add-on.
 
+## Search engines (SEO)
+
+All in `theme/isa/inc/seo.php`, no SEO plugin:
+
+- **Title + description in Google**: every product, page and product category has a **Search engines (Google)** box
+  (English + Arabic). Empty = built from the name and short description (Arabic: its Translate Site translation).
+  TranslatePress free doesn't translate `<title>`/meta tags, so the Arabic fields are how Arabic Google results get Arabic text.
+- Social previews (Open Graph), store details for Google on the home page, brand on products, `x-default` hreflang,
+  canonicals on shop/category pages, `noindex` on account/search/sorted pages.
+- Sitemap: https://isa-skin.com/wp-sitemap.xml, including `wp-sitemap-arabic-1.xml` for the `/ar/` pages. No author sitemap.
+- Product/category copy + Google titles: `bin/seo-content.php` (fills empty fields only; add `force` to overwrite).
+  Arabic for the product/category text is in `bin/translations-ar.php`. On the server:
+
+  ```bash
+  sudo -u www-data wp --path=/var/www/isa eval-file /bin-isa/seo-content.php
+  sudo -u www-data wp --path=/var/www/isa eval-file /bin-isa/seed-translations.php /bin-isa/translations-ar.php
+  ```
+- Google Search Console: verify the domain (Cloudflare DNS record) and submit the sitemap URL above.
+
 ## Brand
 
 - Logo source: `brand/logo-original.jpg`. `bin/make-brand.php` cuts the transparent logos + favicon from it
@@ -116,6 +135,7 @@ Search the admin pages for `[` and replace every bracketed placeholder:
 | `bin/setup.sh` | Store configuration as code |
 | `bin/pages/` | Page content (home, about, FAQ, policies) |
 | `bin/import-products.php` | CSV → products |
+| `bin/seo-content.php` | Product/category descriptions and Google titles |
 
 ## Production
 

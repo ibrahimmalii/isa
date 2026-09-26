@@ -8,6 +8,7 @@ defined( 'ABSPATH' ) || exit;
 define( 'ISA_URI', get_stylesheet_directory_uri() );
 
 require_once __DIR__ . '/inc/shades.php';
+require_once __DIR__ . '/inc/seo.php';
 
 // Theme strings (header, footer, home sections, checkout messages). Arabic lives in languages/ar.po.
 add_action( 'after_setup_theme', function () {
@@ -235,7 +236,7 @@ add_shortcode( 'isa_hero', function () {
 	<section class="isa-hero<?php echo $photo ? ' isa-hero--photo' : ''; ?>">
 		<div class="isa-hero__text">
 			<h1><?php esc_html_e( 'Skin care that feels like you', 'isa' ); ?></h1>
-			<p class="isa-hero__lead"><?php esc_html_e( 'Gentle, effective products for every skin type — delivered to your door anywhere in Egypt.', 'isa' ); ?></p>
+			<p class="isa-hero__lead"><?php esc_html_e( 'Lip & cheek tints, body splashes and hair mists, delivered to your door anywhere in Egypt.', 'isa' ); ?></p>
 			<div class="isa-hero__cta">
 				<a class="button" href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>"><?php esc_html_e( 'Shop the collection', 'isa' ); ?></a>
 				<?php if ( isa_whatsapp_url() ) : ?>
@@ -280,7 +281,7 @@ add_shortcode( 'isa_categories', function () {
 			$p = wc_get_products( [ 'category' => [ $cat->slug ], 'limit' => 1, 'orderby' => 'date', 'order' => 'DESC' ] );
 			$thumb = $p ? (int) $p[0]->get_image_id() : 0;
 		}
-		$img  = $thumb ? wp_get_attachment_image( $thumb, 'woocommerce_thumbnail', false, [ 'loading' => 'lazy' ] ) : '';
+		$img  = $thumb ? wp_get_attachment_image( $thumb, 'woocommerce_thumbnail', false, [ 'loading' => 'lazy', 'alt' => $cat->name ] ) : '';
 		$out .= sprintf(
 			'<a class="isa-cat" href="%s">%s<span>%s <small>%s</small></span></a>',
 			esc_url( get_term_link( $cat ) ),
@@ -317,6 +318,15 @@ add_shortcode( 'isa_promise', function () {
 		);
 	}
 	return $out . '</section>';
+} );
+
+// [isa_intro] — what isa sells, in words people search for. Last section of the home page.
+add_shortcode( 'isa_intro', function () {
+	return sprintf(
+		'<section class="isa-intro"><h2>%s</h2><p>%s</p></section>',
+		esc_html__( 'Skin care made simple', 'isa' ),
+		esc_html__( 'isa is a skin care store in Egypt for the small rituals that make you feel good: a lip and cheek tint for an easy flush of colour, and body splashes and hair mists in fruity, warm and sweet scents. Order online, pay by InstaPay or Vodafone Cash, and we deliver to every governorate in Egypt.', 'isa' )
+	);
 } );
 
 /* -------------------------------------------------------------------------

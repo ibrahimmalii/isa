@@ -153,4 +153,89 @@ return [
 	'Returns and refunds follow our'    => 'يخضع الإرجاع واسترداد المبلغ لسياسة',
 	'policy.'                           => 'الخاصة بنا.',
 	'Questions: [ADD EMAIL / WHATSAPP].' => 'للاستفسارات: [أضف البريد / واتساب].',
+
+
+	// Product descriptions and category texts (bin/seo-content.php)
+	'Shades'
+		=> 'الألوان',
+	'Scents'
+		=> 'الروائح',
+	'How to use'
+		=> 'طريقة الاستخدام',
+	'We deliver to every governorate in Egypt. Pay by InstaPay or Vodafone Cash.'
+		=> 'نوصّل لكل محافظات مصر. الدفع بإنستاباي أو فودافون كاش.',
+
+	// Tint
+	'One tint for your lips and cheeks, in Red, Orange and Rose. Sheer or bold, you decide.'
+		=> 'تينت واحد لشفايفك وخدودك، بالأحمر والبرتقالي والروز. لون خفيف أو قوي، القرار لك.',
+	'isa Tint is a lip and cheek tint: colour for your lips and a flush for your cheeks from one small pack that fits in any bag.'
+		=> 'تينت isa للشفايف والخدود: لون لشفايفك واحمرار طبيعي لخدودك من عبوة صغيرة واحدة تناسب أي شنطة.',
+	'Red: a classic red for lips and a warm glow on cheeks.'
+		=> 'أحمر: أحمر كلاسيكي للشفايف وتوهج دافئ للخدود.',
+	'Orange: a bright, sunny orange for a fresh summer look.'
+		=> 'برتقالي: برتقالي مشرق لإطلالة صيفية منعشة.',
+	'Rose: a soft rose pink for everyday wear.'
+		=> 'روز: وردي ناعم للاستخدام اليومي.',
+	'Lips: dab a little on the centre of your lips, then press them together or blend with your fingertip.'
+		=> 'الشفايف: ضع كمية صغيرة في منتصف الشفايف، ثم اضغطهما معًا أو وزّعه بطرف إصبعك.',
+	'Cheeks: dot it on the apples of your cheeks and blend straight away with your fingertips.'
+		=> 'الخدود: ضع نقاطًا صغيرة على أعلى الخدود ووزّعها فورًا بأطراف أصابعك.',
+	'Build it up: one layer for a sheer look, a second layer for more colour.'
+		=> 'درّج اللون: طبقة واحدة للون خفيف، وطبقة ثانية للون أقوى.',
+	'More than one shade?'
+		=> 'أكثر من لون؟',
+	'Choose a quantity for each shade and add them all to your cart in one go.'
+		=> 'اختر الكمية لكل لون، وأضفها كلها إلى السلة مرة واحدة.',
+
+	// Body Splash
+	'A body splash in two scents: Tropical, and Warm Coconut &amp; Vanilla.'
+		=> 'بودي سبلاش برائحتين: تروبيكال، وجوز الهند الدافئ مع الفانيليا.',
+	'isa Body Splash is a fragrance mist for your body. Spray it on after your shower, before you go out, or any time you want to smell good during the day.'
+		=> 'بودي سبلاش isa عطر خفيف للجسم. رشّه بعد الاستحمام، أو قبل الخروج، أو في أي وقت تحب أن تكون رائحتك جميلة خلال اليوم.',
+	'Tropical: fruity and sunny, like a summer holiday by the sea.'
+		=> 'تروبيكال: فاكهي ومشمس، مثل إجازة صيف على البحر.',
+	'Warm Coconut &amp; Vanilla: creamy coconut with soft, sweet vanilla.'
+		=> 'جوز الهند الدافئ مع الفانيليا: جوز هند كريمي مع فانيليا ناعمة وحلوة.',
+	'Spray from about 20 cm onto your arms, neck and body.'
+		=> 'رشّه من مسافة ٢٠ سم تقريبًا على ذراعيك ورقبتك وجسمك.',
+	'For a stronger scent, apply to clean skin after your shower and spray again during the day.'
+		=> 'لرائحة أقوى، استخدمه على بشرة نظيفة بعد الاستحمام، وكرّر الرش خلال اليوم.',
+	'Keep away from your eyes and from irritated skin.'
+		=> 'تجنّب العينين والبشرة المتهيجة.',
+	'Match your hair'
+		=> 'نفس الرائحة لشعرك',
+	'isa Hair Mist comes in the same scents, so your hair and body smell the same.'
+		=> 'هير ميست isa متوفر بنفس الروائح، لتكون رائحة شعرك وجسمك واحدة.',
+	'Shop isa Hair Mist'
+		=> 'تسوق هير ميست isa',
+
+	// Hair Mist
+	'A fragrance mist for your hair, in fruity, warm and sweet scents.'
+		=> 'عطر خفيف لشعرك، بروائح فاكهية ودافئة وحلوة.',
+	'isa Hair Mist is a fragrance spray made for your hair. A few sprays and your hair smells good, whether you wear it down, tied up or under a hijab.'
+		=> 'هير ميست isa عطر مخصص للشعر. رشّات قليلة وتصبح رائحة شعرك جميلة، سواء كان مفرودًا أو مربوطًا أو تحت الحجاب.',
+	'Tropical: fruity and sunny.'
+		=> 'تروبيكال: فاكهي ومشمس.',
+	'Bound Cheesecake: a sweet, creamy dessert scent.'
+		=> 'بوند تشيز كيك: رائحة حلوى كريمية وحلوة.',
+	'Spray 2 or 3 times from about 20 cm onto dry hair, mostly on the lengths and ends.'
+		=> 'رشّه ٢ أو ٣ مرات من مسافة ٢٠ سم تقريبًا على شعر جاف، وركّز على الأطراف وطول الشعر.',
+	'Spray again during the day whenever you like.'
+		=> 'كرّر الرش خلال اليوم وقتما تحب.',
+	'Keep away from your eyes.'
+		=> 'تجنّب العينين.',
+	'Match your body'
+		=> 'نفس الرائحة لجسمك',
+	'isa Body Splash comes in Tropical and Warm Coconut &amp; Vanilla too, for one scent from head to toe.'
+		=> 'بودي سبلاش isa متوفر أيضًا بروائح تروبيكال وجوز الهند الدافئ مع الفانيليا، لرائحة واحدة من رأسك حتى قدميك.',
+	'Shop isa Body Splash'
+		=> 'تسوق بودي سبلاش isa',
+
+	// Category pages
+	'Lip and cheek tints: colour for your lips and a natural flush for your cheeks, all in one product. Wear it sheer or build it up.'
+		=> 'تينت الشفايف والخدود: لون لشفايفك واحمرار طبيعي لخدودك، في منتج واحد. استخدمه بلون خفيف أو درّجه للون أقوى.',
+	'Body splashes in fruity, warm and sweet scents to wear every day, after your shower or on the go.'
+		=> 'بودي سبلاش بروائح فاكهية ودافئة وحلوة للاستخدام اليومي، بعد الاستحمام أو وأنت خارج البيت.',
+	'Hair mists: fragrance sprays for your hair in fruity, warm and sweet scents, for hair worn down or under a hijab.'
+		=> 'هير ميست: عطور للشعر بروائح فاكهية ودافئة وحلوة، لشعرك سواء كان ظاهرًا أو تحت الحجاب.',
 ];
