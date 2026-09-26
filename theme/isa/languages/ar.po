@@ -91,3 +91,12 @@ msgstr "نصيحة صغيرة: اجمع كل ما تحبه في طلب واحد�
 
 msgid "Shipping ≈ 80–150 EGP, paid to the courier on delivery."
 msgstr "الشحن حوالي ٨٠–١٥٠ ج.م، يُدفع للمندوب عند الاستلام."
+
+msgid "isa on TikTok"
+msgstr "isa على تيك توك"
+
+msgid "isa on Instagram"
+msgstr "isa على إنستجرام"
+
+msgid "Join our WhatsApp group"
+msgstr "انضم إلى جروب واتساب"

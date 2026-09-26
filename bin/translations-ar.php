@@ -73,6 +73,10 @@ return [
 		=> 'أسرع طريقة للتواصل معنا هي واتساب — اضغط على الزر الأخضر أسفل أي صفحة.',
 	'WhatsApp: [ADD NUMBER]'            => 'واتساب: [أضف الرقم]',
 	'WhatsApp:'                         => 'واتساب:',
+	'Instagram:'                        => 'إنستجرام:',
+	'TikTok:'                           => 'تيك توك:',
+	'WhatsApp group:'                   => 'جروب واتساب:',
+	'join here'                         => 'انضم من هنا',
 	'Email: [ADD EMAIL]'                => 'البريد الإلكتروني: [أضف البريد]',
 	'Instagram: [ADD @HANDLE]'          => 'إنستجرام: [أضف الحساب]',
 	'Working hours: [e.g. Sat–Thu, 10am–8pm]'

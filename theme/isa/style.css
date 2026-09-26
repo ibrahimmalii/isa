@@ -453,12 +453,34 @@ table.cart td.product-thumbnail img { border-radius: 4px; background: var(--sand
 .isa-footer li { margin: 0 0 .5em; }
 .site-footer .isa-footer a:not(.button) { color: var(--paper); text-decoration: none; font-size: .95rem; }
 .site-footer .isa-footer a:not(.button):hover { color: var(--sand); text-decoration: underline; }
+/* Social icons: hairline circles that fill on hover */
+.isa-social { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 1.2em; }
+.isa-social__link {
+	display: grid;
+	place-items: center;
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	border: 1px solid rgba(237, 224, 211, .35);
+	color: var(--paper);
+	transition: background-color .25s ease, border-color .25s ease, color .25s ease, transform .25s var(--ease);
+}
+.isa-social__link svg { width: 19px; height: 19px; display: block; }
+.site-footer .isa-footer a.isa-social__link { color: var(--paper); }
+.site-footer .isa-footer a.isa-social__link:hover { background: var(--sand); border-color: var(--sand); color: var(--walnut); transform: translateY(-2px); text-decoration: none; }
+/* On light backgrounds (contact page) */
+.entry-content .isa-social { margin-top: 1.4em; }
+.entry-content a.isa-social__link { border-color: var(--line); color: var(--walnut); text-decoration: none; }
+.entry-content a.isa-social__link:hover { background: var(--walnut); border-color: var(--walnut); color: var(--paper); transform: translateY(-2px); }
+@media (max-width: 767px) { .isa-social { gap: 8px; } .isa-social__link { width: 38px; height: 38px; } .isa-social__link svg { width: 17px; height: 17px; } }
+@media (prefers-reduced-motion: reduce) { .isa-social__link { transition: none; } }
 .isa-footer__pay { font-size: .88rem; margin-top: 1.2em; opacity: .85; }
 .isa-footer__legal { border-top: 1px solid rgba(237, 224, 211, .15); padding: 1.4em 0 1.8em; font-size: .85rem; opacity: .75; }
 @media (max-width: 900px) { .isa-footer { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 767px) {
 	.isa-footer { gap: 28px; }
 	.isa-footer__brand { grid-column: 1 / -1; }
+	.isa-footer__col:last-child { grid-column: 1 / -1; } /* room for the social icons */
 	.isa-footer__legal { padding-bottom: 90px; } /* clear the handheld bar */
 }
 

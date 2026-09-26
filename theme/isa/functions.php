@@ -58,6 +58,8 @@ add_action( 'admin_init', function () {
 	$fields = [
 		'whatsapp'     => __( 'WhatsApp number (with country code, e.g. 201001234567)', 'isa' ),
 		'instagram'    => __( 'Instagram handle (without @)', 'isa' ),
+		'tiktok'       => __( 'TikTok handle (without @)', 'isa' ),
+		'wa_group'     => __( 'WhatsApp group invite link', 'isa' ),
 		'announcement' => __( 'Top announcement bar text', 'isa' ),
 	];
 	foreach ( $fields as $key => $label ) {
@@ -72,6 +74,39 @@ function isa_whatsapp_url(): string {
 	$number = preg_replace( '/\D/', '', isa_setting( 'whatsapp' ) );
 	return $number ? 'https://wa.me/' . $number : '';
 }
+
+/**
+ * Social profile icons (TikTok, Instagram, WhatsApp group), from Settings → General.
+ * Only the ones that are filled in are shown. Also available as [isa_social].
+ */
+function isa_social_links(): string {
+	$icons = [
+		'tiktok'    => '<path fill="currentColor" d="M16.6 2h-3.3v13.3a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9.1a6.2 6.2 0 1 0 5.3 6.2V8.6a7.6 7.6 0 0 0 4.4 1.4V6.7a4.4 4.4 0 0 1-4.4-4.4Z"/>',
+		'instagram' => '<rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/>',
+		'whatsapp'  => '<path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.06c-.24.68-1.41 1.3-1.94 1.35-.5.05-.97.23-3.27-.68-2.77-1.09-4.52-3.93-4.66-4.11-.13-.18-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.27.25-.27.54-.34.72-.34h.52c.17 0 .39-.06.61.47.24.56.79 1.93.86 2.07.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.12.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.23.61-.14.25.09 1.59.75 1.86.89.27.14.45.2.52.32.07.11.07.66-.17 1.34Z"/>',
+	];
+	$tiktok = ltrim( isa_setting( 'tiktok' ), '@' );
+	$insta  = ltrim( isa_setting( 'instagram' ), '@' );
+	$links  = [
+		'tiktok'    => [ $tiktok ? 'https://www.tiktok.com/@' . $tiktok : '', __( 'isa on TikTok', 'isa' ) ],
+		'instagram' => [ $insta ? 'https://www.instagram.com/' . $insta . '/' : '', __( 'isa on Instagram', 'isa' ) ],
+		'whatsapp'  => [ isa_setting( 'wa_group' ), __( 'Join our WhatsApp group', 'isa' ) ],
+	];
+	$out = '';
+	foreach ( $links as $key => [ $url, $label ] ) {
+		if ( $url ) {
+			$out .= sprintf(
+				'<a class="isa-social__link isa-social__link--%1$s" href="%2$s" target="_blank" rel="noopener" aria-label="%3$s" title="%3$s"><svg viewBox="0 0 24 24" aria-hidden="true">%4$s</svg></a>',
+				esc_attr( $key ),
+				esc_url( $url ),
+				esc_attr( $label ),
+				$icons[ $key ]
+			);
+		}
+	}
+	return $out ? '<div class="isa-social">' . $out . '</div>' : '';
+}
+add_shortcode( 'isa_social', 'isa_social_links' );
 
 /* -------------------------------------------------------------------------
  * Header: announcement bar, centred logo, no search
@@ -131,7 +166,6 @@ add_filter( 'storefront_handheld_footer_bar_links', function ( array $links ): a
 
 add_action( 'storefront_footer', function () {
 	$wa    = isa_whatsapp_url();
-	$ig    = isa_setting( 'instagram' );
 	$cats  = get_terms( [ 'taxonomy' => 'product_cat', 'hide_empty' => true, 'exclude' => [ (int) get_option( 'default_product_cat' ) ], 'number' => 6 ] );
 	$help  = wp_get_nav_menu_object( 'Footer' );
 	?>
@@ -159,9 +193,9 @@ add_action( 'storefront_footer', function () {
 		</nav>
 		<div class="isa-footer__col">
 			<h4><?php esc_html_e( 'Talk to us', 'isa' ); ?></h4>
+			<?php echo isa_social_links(); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			<ul>
-				<?php if ( $wa ) : ?><li><a href="<?php echo esc_url( $wa ); ?>" target="_blank" rel="noopener">WhatsApp</a></li><?php endif; ?>
-				<?php if ( $ig ) : ?><li><a href="<?php echo esc_url( 'https://instagram.com/' . ltrim( $ig, '@' ) ); ?>" target="_blank" rel="noopener">Instagram</a></li><?php endif; ?>
+				<?php if ( $wa ) : ?><li><a href="<?php echo esc_url( $wa ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Chat on WhatsApp', 'isa' ); ?></a></li><?php endif; ?>
 				<li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact page', 'isa' ); ?></a></li>
 			</ul>
 			<p class="isa-footer__pay"><?php esc_html_e( 'We accept InstaPay and Vodafone Cash.', 'isa' ); ?></p>
