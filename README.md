@@ -40,7 +40,7 @@ are only created once; after that, edit their prices in the admin.
 | name | yes | |
 | price | yes | EGP, number only |
 | sale_price | | Leave empty if not on sale |
-| category | | `Body Care`, `Hair Care`, `Lip & Cheek` or `Skin Care`; several: `Body Care, Hair Care` |
+| category | | `Body Care`, `Hair Care`, `Lip & Cheek` or `Foot Care`; several: `Body Care, Hair Care` |
 | stock | | Number; empty = don't track stock |
 | featured | | `yes` = shows under "Bestsellers" on the home page |
 | short_description | | 1–2 lines under the price |

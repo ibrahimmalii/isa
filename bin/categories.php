@@ -1,7 +1,8 @@
 <?php
 /**
  * Product categories (English names; Arabic lives in bin/translations-ar.php).
- * Creates missing ones, fixes names/slugs of existing ones. Safe to re-run.
+ * Creates missing ones, fixes names/slugs of existing ones, deletes the retired ones
+ * (their products stay, just without that category). Safe to re-run.
  *
  *   docker compose run --rm cli wp eval-file /bin-isa/categories.php
  *
@@ -9,7 +10,7 @@
  *   Body Care    Splash, Mist
  *   Hair Care    Hair Mist
  *   Lip & Cheek  Tint, Lip Gloss
- *   Skin Care    (none yet: hidden in the shop until it has a product)
+ *   Foot Care    (none yet: hidden in the shop until it has a product)
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -19,8 +20,11 @@ $categories = [
 	'body-care' => [ 'Body Care', [] ],
 	'hair-care' => [ 'Hair Care', [ 'tint' ] ], // was created by hand with the slug "tint"
 	'lip-cheek' => [ 'Lip & Cheek', [] ],
-	'skin-care' => [ 'Skin Care', [] ],
+	'foot-care' => [ 'Foot Care', [] ],
 ];
+
+// Retired: the demo categories and Skin Care.
+$retired = [ 'skin-care', 'moisturizers', 'serums', 'sunscreen', 'cleansers' ];
 
 $ids = [];
 foreach ( $categories as $slug => [ $name, $old_slugs ] ) {
@@ -38,6 +42,14 @@ foreach ( $categories as $slug => [ $name, $old_slugs ] ) {
 		$new          = wp_insert_term( $name, 'product_cat', [ 'slug' => $slug ] );
 		$ids[ $slug ] = is_wp_error( $new ) ? WP_CLI::error( $new->get_error_message() ) : $new['term_id'];
 		WP_CLI::log( "  created $name (#{$ids[ $slug ]}, /$slug/)" );
+	}
+}
+
+foreach ( $retired as $slug ) {
+	$term = get_term_by( 'slug', $slug, 'product_cat' );
+	if ( $term ) {
+		wp_delete_term( $term->term_id, 'product_cat' );
+		WP_CLI::log( "  deleted {$term->name}" );
 	}
 }
 

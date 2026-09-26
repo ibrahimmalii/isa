@@ -37,7 +37,7 @@ return [
 	'Hair Care'                         => 'العناية بالشعر',
 	'Lip &amp; Cheek'                   => 'الشفاه والخدود',
 	'Lip &#038; Cheek'                  => 'الشفاه والخدود',
-	'Skin Care'                         => 'العناية بالبشرة',
+	'Foot Care'                         => 'العناية بالقدمين',
 	'Cleansers'                         => 'منظفات',
 	'Moisturizers'                      => 'مرطبات',
 	'Serums'                            => 'سيرومات',
