@@ -100,7 +100,7 @@ Search the admin pages for `[` and replace every bracketed placeholder:
 - **Content lives on the server now.** Add products, orders, pages and translations in the live admin
   (https://isa-skin.com/wp-admin). `server/push-site.sh` copies local → server and **overwrites** the live
   database. It was only for the first launch.
-- Backups: daily at 03:30 to `/var/backups/isa` (database + uploads, 7 days kept).
+- Backups: daily at 03:30 to `/var/backups/isa` (database + uploads, 7 days kept, root-only).
 - **Security** (`server/harden.sh`, after the 2026-09-26 break-in): wp-login is rate-limited, and wp-admin can't
   install or update plugins/themes (`DISALLOW_FILE_MODS`). Install a plugin on the server instead:
   `sudo -u www-data wp --path=/var/www/isa plugin install <slug> --activate`. Minor/security updates run nightly

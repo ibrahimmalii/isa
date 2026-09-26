@@ -46,6 +46,12 @@ chmod +x /usr/local/bin/isa-update
 grep -q "^export PATH" /usr/local/bin/isa-backup ||
 	sed -i 's|^set -e$|set -e\nexport PATH=/usr/local/bin:/usr/bin:/bin|' /usr/local/bin/isa-backup
 
+# Backups hold every secret in the database; root only.
+chmod 700 /var/backups/isa
+chmod 600 /var/backups/isa/* 2>/dev/null || true
+grep -q '^umask 077' /usr/local/bin/isa-backup ||
+	sed -i 's|^set -e$|set -e\numask 077|' /usr/local/bin/isa-backup
+
 cat > /etc/cron.d/isa <<'CRON'
 */5 * * * * www-data /usr/local/bin/wp --path=/var/www/isa cron event run --due-now --quiet >/dev/null 2>&1
 30 3 * * * root /usr/local/bin/isa-backup >/dev/null 2>&1
