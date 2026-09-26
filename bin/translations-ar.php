@@ -72,6 +72,7 @@ return [
 	'The fastest way to reach us is WhatsApp — tap the green button at the bottom of any page.'
 		=> 'أسرع طريقة للتواصل معنا هي واتساب — اضغط على الزر الأخضر أسفل أي صفحة.',
 	'WhatsApp: [ADD NUMBER]'            => 'واتساب: [أضف الرقم]',
+	'WhatsApp:'                         => 'واتساب:',
 	'Email: [ADD EMAIL]'                => 'البريد الإلكتروني: [أضف البريد]',
 	'Instagram: [ADD @HANDLE]'          => 'إنستجرام: [أضف الحساب]',
 	'Working hours: [e.g. Sat–Thu, 10am–8pm]'
