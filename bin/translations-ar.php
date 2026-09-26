@@ -238,4 +238,30 @@ return [
 		=> 'بودي سبلاش بروائح فاكهية ودافئة وحلوة للاستخدام اليومي، بعد الاستحمام أو وأنت خارج البيت.',
 	'Hair mists: fragrance sprays for your hair in fruity, warm and sweet scents, for hair worn down or under a hijab.'
 		=> 'هير ميست: عطور للشعر بروائح فاكهية ودافئة وحلوة، لشعرك سواء كان ظاهرًا أو تحت الحجاب.',
+
+	// Filled-in placeholders (About, Contact, FAQ, policies)
+	'isa is run by Sohila Yasser in Egypt. Every product is picked to be simple to use and lovely to wear, from lip and cheek tints to body splashes and hair mists. Not sure what to choose? Message us on WhatsApp and get real advice before you buy.'
+		=> 'تدير isa سهيلة ياسر من مصر. كل منتج مختار ليكون سهل الاستخدام وجميلًا عليك، من تينت الشفايف والخدود إلى البودي سبلاش والهير ميست. لست متأكدًا مما تختار؟ راسلنا على واتساب لتحصل على نصيحة حقيقية قبل الشراء.',
+	'Working hours: Saturday to Thursday, 10am to 8pm'
+		=> 'مواعيد العمل: من السبت إلى الخميس، من ١٠ صباحًا حتى ٨ مساءً',
+	'Cairo &amp; Giza: 1–3 working days. Other governorates: 3–5 working days.'
+		=> 'القاهرة والجيزة: ١–٣ أيام عمل. باقي المحافظات: ٣–٥ أيام عمل.',
+	'Yes. Every product is 100% original and never repacked.'
+		=> 'نعم. كل منتجاتنا أصلية ١٠٠٪ ولا يُعاد تعبئتها أبدًا.',
+	'This store is operated by Sohila Yasser, Egypt.'
+		=> 'تدير هذا المتجر سهيلة ياسر، مصر.',
+	'Questions: message us on'
+		=> 'للاستفسارات: راسلنا على',
+	'WhatsApp'
+		=> 'واتساب',
+	'You can ask us to see or delete your data at any time: message us on'
+		=> 'يمكنك طلب الاطلاع على بياناتك أو حذفها في أي وقت: راسلنا على',
+	'Cairo &amp; Giza: 1–3 working days. Rest of Egypt: 3–5 working days.'
+		=> 'القاهرة والجيزة: ١–٣ أيام عمل. باقي المحافظات: ٣–٥ أيام عمل.',
+	'You can return an item within 14 days of delivery if it is unopened, unused and in its original packaging.'
+		=> 'يمكنك إرجاع المنتج خلال ١٤ يومًا من الاستلام إذا كان مغلقًا وغير مستخدم وفي عبوته الأصلية.',
+	'If your order arrives damaged or incorrect, message us within 48 hours with a photo and we&#8217;ll replace it or refund you in full, including shipping.'
+		=> 'إذا وصل طلبك تالفًا أو غير صحيح، راسلنا خلال ٤٨ ساعة مع صورة، وسنستبدله أو نرد لك المبلغ كاملًا شاملًا الشحن.',
+	'Refunds are sent within 7–14 days of receiving the returned item, to the same payment method or by InstaPay / wallet.'
+		=> 'نرسل المبلغ المسترد خلال ٧–١٤ يومًا من استلام المنتج المرتجع، بنفس طريقة الدفع أو عبر إنستاباي / المحفظة.',
 ];
