@@ -199,6 +199,7 @@ cat > /usr/local/bin/isa-backup <<'SH'
 #!/usr/bin/env bash
 # Daily: DB dump + uploads archive, keep 7 days.
 set -e
+export PATH=/usr/local/bin:/usr/bin:/bin
 d=$(date +%F)
 sudo -u www-data wp --path=/var/www/isa db export - --quiet | gzip > /var/backups/isa/db-$d.sql.gz
 tar -czf /var/backups/isa/uploads-$d.tar.gz -C /var/www/isa/wp-content uploads
@@ -212,5 +213,8 @@ CRON
 
 # ------------------------------------------------------------------ updates
 dpkg-reconfigure -f noninteractive unattended-upgrades >/dev/null 2>&1 || true
+
+# ------------------------------------------------------------------ hardening
+bash "$REPO/server/harden.sh"
 
 say "Provisioned. Next: copy the site data (server/push-site.sh from your Mac), then TLS."

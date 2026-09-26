@@ -101,6 +101,10 @@ Search the admin pages for `[` and replace every bracketed placeholder:
   (https://isa-skin.com/wp-admin). `server/push-site.sh` copies local → server and **overwrites** the live
   database. It was only for the first launch.
 - Backups: daily at 03:30 to `/var/backups/isa` (database + uploads, 7 days kept).
+- **Security** (`server/harden.sh`, after the 2026-09-26 break-in): wp-login is rate-limited, and wp-admin can't
+  install or update plugins/themes (`DISALLOW_FILE_MODS`). Install a plugin on the server instead:
+  `sudo -u www-data wp --path=/var/www/isa plugin install <slug> --activate`. Minor/security updates run nightly
+  at 04:15 (`/usr/local/bin/isa-update`). Use a long unique admin password: `password` is what got guessed.
 
 ## Store rules
 
