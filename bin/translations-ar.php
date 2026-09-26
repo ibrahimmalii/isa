@@ -38,6 +38,13 @@ return [
 	'Lip &amp; Cheek'                   => 'الشفاه والخدود',
 	'Lip &#038; Cheek'                  => 'الشفاه والخدود',
 	'Foot Care'                         => 'العناية بالقدمين',
+
+	// Product names (descriptions: TranslatePress editor)
+	'Tint'                              => 'تنت',
+	'Hair Mist'                         => 'هير ميست',
+	'Body Mist'                         => 'بودي ميست',
+	'Body Splash'                       => 'بودي سبلاش',
+	'Lip Gloss'                         => 'ليب جلوس',
 	'Cleansers'                         => 'منظفات',
 	'Moisturizers'                      => 'مرطبات',
 	'Serums'                            => 'سيرومات',
