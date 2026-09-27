@@ -35,7 +35,7 @@ function isa_is_arabic(): bool {
 add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style(
 		'isa-fonts',
-		'https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Jost:wght@400;500' . ( isa_is_arabic() ? '&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500' : '' ) . '&display=swap',
+		'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Figtree:wght@400;500;600&family=Jost:wght@400;500' . ( isa_is_arabic() ? '&family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500' : '' ) . '&display=swap',
 		[],
 		null
 	);

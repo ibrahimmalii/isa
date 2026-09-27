@@ -22,8 +22,12 @@ Text Domain: isa
 	--line:    #e2d4c6;
 	--muted:   #8b7868;
 
-	--serif: "Bodoni Moda", "Noto Naskh Arabic", "Didot", Georgia, serif;
-	--sans:  "Jost", "IBM Plex Sans Arabic", "Segoe UI", system-ui, sans-serif;
+	/* Cormorant: the logo's soft, high-contrast serif, without Bodoni's
+	   hairlines breaking up on screen. Figtree reads easily in paragraphs.
+	   Jost (the "SKINCARE" line) is kept for buttons and small labels. */
+	--serif: "Cormorant Garamond", "Noto Naskh Arabic", Georgia, serif;
+	--sans:  "Figtree", "IBM Plex Sans Arabic", "Segoe UI", system-ui, sans-serif;
+	--label: "Jost", "IBM Plex Sans Arabic", "Segoe UI", system-ui, sans-serif;
 
 	--wrap: 1240px;
 	--gutter: clamp(16px, 4vw, 40px);
@@ -46,21 +50,22 @@ body {
 	background: var(--paper);
 	color: var(--bark);
 	font-family: var(--sans);
-	font-size: 16.5px;
-	line-height: 1.65;
+	font-size: 17px;
+	line-height: 1.7;
 	-webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, .product_title, .woocommerce-loop-product__title, .entry-title {
 	font-family: var(--serif);
-	font-weight: 400;
+	font-weight: 500;
 	color: var(--walnut);
-	letter-spacing: -0.005em;
-	line-height: 1.12;
+	letter-spacing: 0;
+	line-height: 1.1;
+	text-wrap: balance;
 }
-h1, .entry-title, .product_title { font-size: clamp(2.1rem, 4.2vw, 3.1rem); }
-h2 { font-size: clamp(1.6rem, 2.8vw, 2.15rem); }
-h3 { font-size: 1.35rem; }
+h1, .entry-title, .product_title { font-size: clamp(2.4rem, 4.6vw, 3.5rem); }
+h2 { font-size: clamp(1.85rem, 3.1vw, 2.5rem); }
+h3 { font-size: 1.55rem; font-weight: 600; }
 
 a { color: var(--walnut); text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { color: var(--taupe); }
@@ -85,10 +90,10 @@ button, input[type="button"], input[type="reset"], input[type="submit"],
 	border: 1px solid var(--walnut);
 	color: var(--paper);
 	border-radius: 2px;
-	font-family: var(--sans);
+	font-family: var(--label);
 	font-weight: 500;
 	font-size: .95rem;
-	letter-spacing: .02em;
+	letter-spacing: .04em;
 	padding: .85em 1.9em;
 	transition: background-color .2s ease, border-color .2s ease;
 }
@@ -113,8 +118,9 @@ button:hover, .button:hover, input[type="submit"]:hover, .added_to_cart:hover,
 	background: var(--walnut);
 	color: var(--sand);
 	text-align: center;
+	font-family: var(--label);
 	font-size: .85rem;
-	letter-spacing: .02em;
+	letter-spacing: .04em;
 	padding: .55em var(--gutter);
 }
 
@@ -253,9 +259,9 @@ button:hover, .button:hover, input[type="submit"]:hover, .added_to_cart:hover,
 	padding: clamp(36px, 7vw, 88px) 0 clamp(40px, 6vw, 80px);
 }
 .isa-hero h1 {
-	font-size: clamp(2.7rem, 6.4vw, 5rem);
-	line-height: 1.02;
-	letter-spacing: -0.015em;
+	font-size: clamp(3rem, 7vw, 5.6rem);
+	line-height: 1;
+	letter-spacing: -0.01em;
 	margin: 0 0 .45em;
 	max-width: 11ch;
 }
@@ -316,7 +322,7 @@ button:hover, .button:hover, input[type="submit"]:hover, .added_to_cart:hover,
 	transition: filter .3s ease;
 }
 .isa-cat:hover img { filter: brightness(1.04) saturate(1.05); }
-.isa-cat span { font-family: var(--serif); font-size: 1.3rem; display: block; line-height: 1.2; }
+.isa-cat span { font-family: var(--serif); font-weight: 600; font-size: 1.5rem; display: block; line-height: 1.2; }
 .isa-cat small { display: block; font-family: var(--sans); font-size: .85rem; color: var(--muted); margin-top: .2em; }
 @media (max-width: 767px) { .isa-cats { grid-template-columns: repeat(2, 1fr); } }
 
@@ -331,7 +337,7 @@ button:hover, .button:hover, input[type="submit"]:hover, .added_to_cart:hover,
 .isa-promise > div { padding: 1.8em 1.4em; border-inline-start: 1px solid var(--line); }
 .isa-promise > div:first-child { border-inline-start: 0; }
 .isa-promise svg { width: 26px; height: 26px; fill: none; stroke: var(--taupe); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; margin-bottom: .7em; }
-.isa-promise strong { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.2rem; color: var(--walnut); }
+.isa-promise strong { display: block; font-family: var(--serif); font-weight: 600; font-size: 1.4rem; color: var(--walnut); }
 .isa-promise span { color: var(--muted); font-size: .92rem; }
 @media (max-width: 767px) {
 	.isa-promise { grid-template-columns: 1fr 1fr; }
@@ -358,7 +364,8 @@ ul.products li.product img {
 	margin-bottom: 1em;
 }
 ul.products li.product .woocommerce-loop-product__title {
-	font-size: 1.15rem;
+	font-size: 1.35rem;
+	font-weight: 600;
 	line-height: 1.3;
 	padding: 0;
 	margin-bottom: .25em;
@@ -388,7 +395,7 @@ ul.products li.product, .single-product div.product .woocommerce-product-gallery
 	.site-main ul.products { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 14px; }
 	.site-main ul.products::before, .site-main ul.products::after { display: none; }
 	.site-main ul.products li.product { width: auto; margin: 0; float: none; }
-	ul.products li.product .woocommerce-loop-product__title { font-size: 1rem; }
+	ul.products li.product .woocommerce-loop-product__title { font-size: 1.15rem; }
 	ul.products li.product .button { padding: .7em .6em; font-size: .88rem; }
 }
 
@@ -448,7 +455,7 @@ ul.products ~ .storefront-sorting .woocommerce-result-count { display: none; }
 .woocommerce-tabs { border-top: 1px solid var(--line); padding-top: 2em; }
 .woocommerce-tabs ul.tabs { border: 0; }
 .woocommerce-tabs ul.tabs li { border: 0; }
-.woocommerce-tabs ul.tabs li a { font-family: var(--serif); font-size: 1.15rem; color: var(--muted); }
+.woocommerce-tabs ul.tabs li a { font-family: var(--label); font-size: .88rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .woocommerce-tabs ul.tabs li.active a { color: var(--walnut); }
 .woocommerce-tabs ul.tabs li.active::after { display: none; }
 .related.products > h2, .upsells.products > h2 { border-bottom: 1px solid var(--line); padding-bottom: .6em; margin-bottom: 1.2em; }
@@ -515,8 +522,8 @@ table.cart td.product-thumbnail img { border-radius: 4px; background: var(--sand
 .isa-footer__brand p { max-width: 30ch; font-size: .95rem; }
 .isa-footer h4 {
 	font-family: var(--serif);
-	font-weight: 400;
-	font-size: 1.15rem;
+	font-weight: 600;
+	font-size: 1.35rem;
 	color: var(--sand);
 	margin: 0 0 .9em;
 }
@@ -596,18 +603,20 @@ html:not([lang^="ar"]) .isa-lang { font-family: "IBM Plex Sans Arabic", "Segoe U
 }
 
 /* =========================================================================
-   Arabic / RTL. Bodoni has no Arabic: Amiri (a high-contrast Naskh) takes
+   Arabic / RTL. Cormorant has no Arabic: Amiri (a high-contrast Naskh) takes
    the display role, Plex Arabic the text; Arabic needs more leading.
    ====================================================================== */
 html[lang^="ar"] {
 	--serif: "Amiri", "Noto Naskh Arabic", serif;
 	--sans:  "IBM Plex Sans Arabic", "Segoe UI", system-ui, sans-serif;
+	--label: var(--sans);
 }
 html[lang^="ar"] body { line-height: 1.85; font-size: 16px; }
 html[lang^="ar"] h1, html[lang^="ar"] h2, html[lang^="ar"] h3, html[lang^="ar"] h4,
 html[lang^="ar"] .product_title, html[lang^="ar"] .woocommerce-loop-product__title { font-weight: 700; letter-spacing: 0; line-height: 1.35; }
 html[lang^="ar"] .isa-hero h1 { line-height: 1.3; font-size: clamp(2.4rem, 5.6vw, 4.2rem); max-width: 13ch; }
-html[lang^="ar"] button, html[lang^="ar"] .button { letter-spacing: 0; }
+html[lang^="ar"] button, html[lang^="ar"] .button, html[lang^="ar"] .isa-announcement { letter-spacing: 0; }
+html[lang^="ar"] .woocommerce-tabs ul.tabs li a { letter-spacing: 0; font-size: 1rem; }
 /* Phone numbers keep their digit groups in order inside RTL text (+20 101 491 7877) */
 a[href^="https://wa.me/"], a[href^="tel:"] { direction: ltr; unicode-bidi: isolate; }
 /* Prices stay left-to-right numerals inside RTL text */
@@ -988,7 +997,7 @@ html[lang^="ar"] .isa-ship-note__tip { font-style: normal; }
    ====================================================================== */
 .isa-shades { padding: 1em 0; }
 .single-product div.product .isa-shades fieldset { border: 0; padding: 0; margin: 0 0 1em; background: none; min-width: 0; }
-.single-product div.product .isa-shades legend { font-size: .82rem; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); background: none; padding: 0; margin: 0 0 .6em; }
+.single-product div.product .isa-shades legend { font-family: var(--label); font-size: .82rem; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); background: none; padding: 0; margin: 0 0 .6em; }
 html[lang^="ar"] .single-product div.product .isa-shades legend { letter-spacing: 0; font-size: .92rem; }
 .isa-shades__list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .isa-shade {
