@@ -267,6 +267,7 @@ add_action( 'wp_head', function () {
 		'areaServed'          => [ '@type' => 'Country', 'name' => 'Egypt' ],
 		'currenciesAccepted'  => 'EGP',
 		'paymentAccepted'     => 'InstaPay, Vodafone Cash',
+		'hasMerchantReturnPolicy' => isa_seo_return_policy(),
 	];
 	if ( $logo ) {
 		$store['logo']  = $logo;
@@ -307,6 +308,52 @@ add_filter( 'woocommerce_structured_data_product', function ( $markup ) {
 	$markup['brand'] = [ '@type' => 'Brand', 'name' => 'isa' ];
 	return $markup;
 } );
+
+/**
+ * Delivery and returns as Google's merchant listings want them. Keep in step with the
+ * Shipping & Returns page. Google takes one shipping price, not a range, so this is the
+ * top of the usual 80–150 EGP the courier charges.
+ */
+function isa_seo_shipping_details(): array {
+	return [
+		'@type'               => 'OfferShippingDetails',
+		'shippingRate'        => [ '@type' => 'MonetaryAmount', 'value' => 150, 'currency' => 'EGP' ],
+		'shippingDestination' => [ '@type' => 'DefinedRegion', 'addressCountry' => 'EG' ],
+		'deliveryTime'        => [
+			'@type'        => 'ShippingDeliveryTime',
+			'handlingTime' => [ '@type' => 'QuantitativeValue', 'minValue' => 0, 'maxValue' => 1, 'unitCode' => 'DAY' ],
+			'transitTime'  => [ '@type' => 'QuantitativeValue', 'minValue' => 1, 'maxValue' => 5, 'unitCode' => 'DAY' ],
+		],
+	];
+}
+
+function isa_seo_return_policy(): array {
+	return [
+		'@type'                => 'MerchantReturnPolicy',
+		'applicableCountry'    => 'EG',
+		'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
+		'merchantReturnDays'   => 14,
+		'returnMethod'         => 'https://schema.org/ReturnByMail',
+		'merchantReturnLink'   => get_permalink( get_page_by_path( 'shipping-returns' ) ) ?: home_url( '/shipping-returns/' ),
+	];
+}
+
+add_filter( 'woocommerce_structured_data_product_offer', function ( array $offer, $product ): array {
+	$offer['shippingDetails']         = isa_seo_shipping_details();
+	$offer['hasMerchantReturnPolicy'] = isa_seo_return_policy();
+
+	// WooCommerce gives the price an end date (validThrough) but no start: use the sale start, else the last edit.
+	$from = $product->is_on_sale() && $product->get_date_on_sale_from() ? $product->get_date_on_sale_from() : $product->get_date_modified();
+	if ( $from ) {
+		$offer['validFrom'] = $from->date( 'Y-m-d' );
+		foreach ( $offer['priceSpecification'] ?? [] as $i => $spec ) {
+			if ( is_array( $spec ) && ! empty( $spec['validThrough'] ) && empty( $spec['validFrom'] ) ) {
+				$offer['priceSpecification'][ $i ]['validFrom'] = $offer['validFrom'];
+			}
+		}
+	}
+	return $offer;
+}, 10, 2 );
 
 /* -------------------------------------------------------------------------
  * Indexing: robots meta, robots.txt, sitemap
