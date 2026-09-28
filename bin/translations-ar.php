@@ -264,4 +264,6 @@ return [
 		=> 'إذا وصل طلبك تالفًا أو غير صحيح، راسلنا خلال ٤٨ ساعة مع صورة، وسنستبدله أو نرد لك المبلغ كاملًا شاملًا الشحن.',
 	'Refunds are sent within 7–14 days of receiving the returned item, to the same payment method or by InstaPay / wallet.'
 		=> 'نرسل المبلغ المسترد خلال ٧–١٤ يومًا من استلام المنتج المرتجع، بنفس طريقة الدفع أو عبر إنستاباي / المحفظة.',
+	'You pay the courier fee for sending these items back.'
+		=> 'تدفع أنت مصاريف المندوب لإرجاع هذه المنتجات.',
 ];

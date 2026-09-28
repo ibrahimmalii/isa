@@ -334,6 +334,7 @@ function isa_seo_return_policy(): array {
 		'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
 		'merchantReturnDays'   => 14,
 		'returnMethod'         => 'https://schema.org/ReturnByMail',
+		'returnFees'           => 'https://schema.org/ReturnFeesCustomerResponsibility', // customer pays the return courier (free if damaged/wrong)
 		'merchantReturnLink'   => get_permalink( get_page_by_path( 'shipping-returns' ) ) ?: home_url( '/shipping-returns/' ),
 	];
 }
