@@ -370,6 +370,13 @@ add_filter( 'wp_robots', function ( array $robots ): array {
 	return $robots;
 } );
 
+// RSS feeds (…/feed/) are for feed readers, not search results.
+add_action( 'template_redirect', function () {
+	if ( is_feed() && ! headers_sent() ) {
+		header( 'X-Robots-Tag: noindex, follow', true );
+	}
+} );
+
 /*
  * robots.txt itself comes from core + WooCommerce (sitemap line, add-to-cart and wp-admin rules).
  * WordPress only adds the robots.txt rewrite rule when home_url() has no path. Under WP-CLI,

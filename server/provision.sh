@@ -154,7 +154,14 @@ server {
 	client_max_body_size 20m;
 
 	# www → apex
-	if (\$host = www.$DOMAIN) { return 301 \$scheme://$DOMAIN\$request_uri; }
+	if (\$host = www.$DOMAIN) { return 301 https://$DOMAIN\$request_uri; }
+
+	# http → https. Behind Cloudflare the visitor's scheme is in X-Forwarded-Proto; certbot's
+	# HTTP-01 check stays on plain http.
+	set \$isa_proto \$http_x_forwarded_proto;
+	if (\$isa_proto = "") { set \$isa_proto \$scheme; }
+	if (\$request_uri ~ "^/\.well-known/acme-challenge/") { set \$isa_proto https; }
+	if (\$isa_proto = "http") { return 301 https://$DOMAIN\$request_uri; }
 
 	# Page cache: guests only. Anything with a cart, login, checkout or POST skips it.
 	set \$skip 0;
