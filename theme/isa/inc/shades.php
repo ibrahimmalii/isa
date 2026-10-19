@@ -112,7 +112,7 @@ function isa_is_shade_product( $product ): bool {
 /**
  * Every published shade of a product: in stock first, each group in the attribute's term order.
  *
- * @return array<int, array{id:int, slug:string, name:string, color:string, image:int, price:string, stock:?int, buyable:bool, max:int}>
+ * @return array<int, array{id:int, slug:string, name:string, color:string, image:int, price:string, stock:?int, buyable:bool, max:int, view:?array}>
  */
 function isa_product_shades( WC_Product_Variable $product ): array {
 	$taxonomy = isa_picker_taxonomy( $product );
@@ -139,11 +139,15 @@ function isa_product_shades( WC_Product_Variable $product ): array {
 			'slug'    => $slug,
 			'name'    => $term->name,
 			'color'   => (string) get_term_meta( $term->term_id, 'isa_color', true ),
-			'image'   => $v->get_image_id() !== $product->get_image_id() ? (int) $v->get_image_id() : 0,
+			'image'   => (int) $v->get_image_id( 'edit' ), // its own photo; 'view' would fall back to the product's
 			'price'   => $v->get_price_html(),
 			'stock'   => $stock,
 			'buyable' => $buyable,
 			'max'     => $buyable ? ( $max > 0 ? $max : 99 ) : 0,
+			// Photos WooCommerce's gallery switches to when this option is tapped (own photo and/or gallery).
+			'view'    => $v->get_image_id( 'edit' ) || $v->get_gallery_image_ids( 'edit' )
+				? array_intersect_key( $product->get_available_variation( $v ), array_flip( [ 'image', 'image_id', 'gallery_images_html' ] ) )
+				: null,
 		];
 	}
 	ksort( $shades );
@@ -185,13 +189,23 @@ function isa_variable_add_to_cart(): void {
 	$taxonomy  = isa_picker_taxonomy( $product );
 	$any       = (bool) array_filter( $shades, fn( $s ) => $s['buyable'] );
 	$one_price = 1 === count( array_unique( array_column( $shades, 'price' ) ) );
+	$photos    = (bool) array_filter( array_column( $shades, 'view' ) );
+	if ( $photos ) {
+		// WooCommerce's own gallery switcher (zoom, swipe, lightbox keep working) + the photos to go back to.
+		wp_enqueue_script( 'wc-add-to-cart-variation' );
+		wp_add_inline_script(
+			'wc-add-to-cart-variation',
+			sprintf( '(window.wc_variation_gallery_defaults = window.wc_variation_gallery_defaults || {})[%d] = %s;', $product->get_id(), wp_json_encode( wc_get_product_gallery_html( $product ) ) ),
+			'before'
+		);
+	}
 	?>
-	<form class="isa-shades" method="post" action="<?php echo esc_url( get_permalink( $product->get_id() ) ); ?>">
+	<form class="isa-shades" data-product_id="<?php echo esc_attr( $product->get_id() ); ?>" method="post" action="<?php echo esc_url( get_permalink( $product->get_id() ) ); ?>">
 		<fieldset>
 			<legend><?php echo esc_html( isa_picker_text( $taxonomy, 'legend' ) ); ?></legend>
 			<ul class="isa-shades__list">
 				<?php foreach ( $shades as $s ) : $input = 'isa-shade-' . $s['id']; ?>
-					<li class="isa-shade<?php echo $s['buyable'] ? '' : ' is-out'; ?>">
+					<li class="isa-shade<?php echo $s['buyable'] ? '' : ' is-out'; ?>"<?php echo $s['view'] ? ' data-view="' . esc_attr( wp_json_encode( $s['view'] ) ) . '"' : ''; ?>>
 						<?php echo isa_shade_swatch( $s ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 						<label class="isa-shade__name" for="<?php echo esc_attr( $input ); ?>">
 							<?php echo esc_html( $s['name'] ); ?>
@@ -235,8 +249,20 @@ function isa_variable_add_to_cart(): void {
 			btn.disabled = !n;
 			btn.textContent = n ? btn.dataset.label + ' (' + n + ')' : btn.dataset.empty;
 		}
+		// Tapping an option (its dot, name or +) shows its photos; one without photos shows the product's.
+		var viewing = null;
+		function show(row) {
+			if (row === viewing || !window.jQuery || !jQuery.fn.wc_variations_image_update) return;
+			if (!row.dataset.view && (!viewing || !viewing.dataset.view)) { viewing = row; return; }
+			jQuery(form).wc_variations_image_update(row.dataset.view ? JSON.parse(row.dataset.view) : false);
+			if (viewing) viewing.classList.remove('is-viewing');
+			row.classList.add('is-viewing');
+			viewing = row;
+		}
 		form.addEventListener('click', function (e) {
+			var row = e.target.closest('.isa-shade');
 			var b = e.target.closest('.isa-qty__btn');
+			if (row && !(b && b.dataset.step < 0)) show(row);
 			if (!b) return;
 			var i = b.parentNode.querySelector('input');
 			i.value = (parseInt(i.value, 10) || 0) + +b.dataset.step;

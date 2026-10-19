@@ -1030,6 +1030,9 @@ html[lang^="ar"] .single-product div.product .isa-shades legend { letter-spacing
 .isa-swatch { width: 30px; height: 30px; }
 .isa-swatch--img img, .isa-dot--img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .isa-shade.is-picked .isa-swatch { box-shadow: 0 0 0 2px var(--paper), 0 0 0 3px var(--walnut); }
+.isa-shade[data-view] .isa-swatch { cursor: pointer; }
+.isa-shade.is-viewing .isa-shade__name { color: var(--walnut); }
+.isa-shade.is-viewing:not(.is-picked) .isa-swatch { box-shadow: 0 0 0 2px var(--paper), 0 0 0 3px var(--taupe); }
 
 .isa-qty { display: inline-flex; align-items: stretch; border: 1px solid var(--line); border-radius: 2px; background: #fff; }
 .isa-qty input[type=number] {
