@@ -101,3 +101,12 @@ add_action( 'wp_enqueue_scripts', function () {
 add_filter( 'woocommerce_cart_fragment_name', function ( $name ) {
 	return $name . '_' . determine_locale();
 } );
+
+// Cloudflare Web Analytics. Added in the page, not by Cloudflare's automatic setup: Cloudflare skips
+// zstd-compressed pages, which Chrome/Edge/Firefox request. Not shown to logged-in users (shop staff).
+add_action( 'wp_footer', function () {
+	if ( is_user_logged_in() ) {
+		return;
+	}
+	echo '<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'{"token":"89cdaa6753694d44a6f4e40584b856a3"}\'></script>' . "\n";
+}, 100 );
